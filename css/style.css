@@ -3,7 +3,7 @@
 	font-family: 'Varela Round', sans-serif;
 	font-size:3vh;
 	font-weight: bold;
-	padding: 3vh;
+	
     background-color: rgba(0,0,0,0.3);
     
 }
@@ -53,15 +53,10 @@ collapse navbar-collapse{
 /*footer*/
 .searching{
     background-color: #F8F9FA;
-    margin: 2vh;
-    height: 10vh;
     list-style-type: none; 
     display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-    margin-left: 5%;
-    margin-right: 5%;
-    padding: 2vh;
 }
 
 .dropdown-item:hover{
@@ -108,42 +103,6 @@ a:hover{
 .col{
     margin-top: 5vh;
 }
-/*
-This is the visible area of you carousel.
-Set a width here to define how much items are visible.
-The width can be either fixed in px or flexible in %.
-Position must be relative!
-*/
-.jcarousel {
-    position: relative;
-    overflow: hidden;
-}
-
-/*
-This is the container of the carousel items.
-You must ensure that the position is relative or absolute and
-that the width is big enough to contain all items.
-*/
-.jcarousel ul {
-    width: auto;
-    position: relative;
-
-    /* Optional, required in this case since it's a <ul> element */
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-/*
-These are the item elements. jCarousel works best, if the items
-have a fixed width and height (but it's not required).
-*/
-.jcarousel li {
-    /* Required only for block elements like <li>'s */
-    float: left;
-}
-
-
 
 
 
