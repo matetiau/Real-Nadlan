@@ -1,23 +1,31 @@
     body{
-            margin:3%;
+            
             font-family: 'Rubik', sans-serif;
         }
 
-.top{
-        margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 1%;
 
-    background-color: #d6cbd3;
-}
 .col-md-12{
     padding: 0px;
     
-        
-}
-.piccen{
+    position: fixed;
+    top: 0px;
+    
     
 }
+
+.navbar-form{
+    display: flex;
+    width: 100%;
+    margin: 5% 25% 5% 25%;
+}
+.navbar{
+    z-index: 1;
+    background-color:rgba(0,0,0,0.5);
+    border: 0px;
+    height: 70px;
+   
+}
+
 
 
 
