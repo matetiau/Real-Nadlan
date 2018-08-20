@@ -1,118 +1,23 @@
-/*nav bar*/
-.navbar{
-	font-family: 'Varela Round', sans-serif;
-	font-size:3vh;
-	font-weight: bold;
-	
-    background-color: rgba(0,0,0,0.3);
+    body{
+            margin:3%;
+            font-family: 'Rubik', sans-serif;
+        }
+
+.top{
+        margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 1%;
+
+    background-color: #d6cbd3;
+}
+.col-md-12{
+    padding: 0px;
+    
+        
+}
+.piccen{
     
 }
-collapse navbar-collapse{
-	float: right;
-}
-.nav-link{
-	float: right;
-}
-
-
-
-
-.nav-item:hover{
-	background-color: #b5e7a0;
-}
-.navbar-light .navbar-toggler{
-	color: red;
-}
-
-
-
-/*h1 and firts image*/
-
-
-.conteiner1{
-   background-image:url(edward-cisneros-415590-unsplash.jpg);
-    height: 80vh;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-}
-.koko{
-  padding: .5em;
-  flex: 1;
-}
-
-
-/*end h1 and firts image*/
-
-.conteiner2 div{
-    width: 33.3%;
-    float: left;
-    padding: 3vh;
-}
-
-/*footer*/
-.searching{
-    background-color: #F8F9FA;
-    list-style-type: none; 
-    display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-}
-
-.dropdown-item:hover{
-    background-color: #00B94A;
-}
-.options1, .options2, .options3  {
-    width: 17%;
-    margin: 0px;
-}
-
-.forma{
-    width: 30%;
-
-}
-a{
-    color: #3b444b;
-}
-a:hover{
-	background-color: #00B94A;
-    color: #F5F5F5;
-}
-.form-inline{
-    margin-left: 9vh;
-    margin-right: 25vh;
-}
-
-
-
-.promotions{
-    width: 100%;
-    text-align: center;
-    height:15vh;
-    margin: 5vh;
-}
-.pro{
-    font-size: 10vh;
-    color: #3b444b;
-}
-.row{
-    margin-left: 10%;
-    margin-right: 10%;
-    padding:2vh;   
-}
-.col{
-    margin-top: 5vh;
-}
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -21,9 +21,9 @@
         .main{
             background-color: antiquewhite;
             height: 100%;
-            margin: 5%;
-            margin-bottom: 5%;
-            margin-top:1%;
+            margin:5%;
+            padding:2%;
+
         }
 #carou{
     height: 100%;
@@ -47,9 +47,10 @@
             padding-top: 3%;
             padding-bottom: 3%;
             padding-right: 0px;
+    
 }
 carousel-inner .image{
-    height: 75vh; 
+    height: 85vh; 
     width: 100%;
 }
 
@@ -96,7 +97,8 @@ h3:hover{
     color:white;
 }
 h1{
-    font-size: 6vh;
+    font-size: 5.5vh;
+    
 }
 .email{
     text-decoration: none;
