@@ -6,26 +6,76 @@
 
 .col-md-12{
     padding: 0px;
-    
+   
     position: fixed;
     top: 0px;
     
     
 }
+.carousel slide{
+    height: 100vh !important;
+}
 
 .navbar-form{
     display: flex;
     width: 100%;
+    background-color: #0FB654;
     margin: 5% 25% 5% 25%;
+    padding: 2%;
 }
 .navbar{
     z-index: 1;
     background-color:rgba(0,0,0,0.5);
     border: 0px;
     height: 70px;
+    color: aliceblue;
    
 }
-
-
+.navbar button, btn-group{
+    background-color:rgba(0,0,0,0.0);
+    color: aliceblue;
+    line-height: 60px;
+    font-size: 30px;
+}
+.btn{
+    border: 0;
+}
+.btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover{
+    background-color:rgba(0,0,0,0.5);
+    color: aliceblue;
+}
+.btn:focus{
+    background-color:rgba(0,0,0,0.5);
+    color: aliceblue;
+}
+.btn:hover{
+    background-color:rgba(0,0,0,0.5);
+    color: aliceblue;
+}
+.dropdown-menu{
+    background-color:rgba(0,0,0,0.5);
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+}
+.dropdown-menu li a{
+    color: aliceblue;
+}
+.dropdown-menu li a:hover{
+    color: aliceblue;
+    
+}
+.dropdown-menu li a:hover{
+    color: aliceblue;
+    background-color:rgba(0,0,0,0.5);
+    font-size: 30px;
+}
+.container-fluid{
+    display: flex;
+    
+}
+.most-viewd{
+    height: 100%;
+}
 
 
