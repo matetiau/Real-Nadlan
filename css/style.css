@@ -1,33 +1,44 @@
-    body{
-            
-            font-family: 'Rubik', sans-serif;
-        }
-
-
-.col-md-12{
-    padding: 0px;
-   
-    position: fixed;
-    top: 0px;
-    
-    
-}
-.carousel slide{
-    height: 100vh !important;
+html, body, main,contai {
+    height: 100%;
 }
 
+
+.contai{
+    padding: 0px; 
+    display: flex;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    height: 100%;
+    
+}
+.carousel{
+    
+}
+.navbar-form>div{
+    margin: 2%;
+}
+.nav-bar-down{
+    width: 100%;
+    margin: 5% 25% 5% 25%;
+    background-color: #0FB654;
+
+}
 .navbar-form{
     display: flex;
     width: 100%;
-    background-color: #0FB654;
-    margin: 5% 25% 5% 25%;
-    padding: 2%;
+    
 }
+.form-group{
+    width: 50%;
+}
+
 .navbar{
     z-index: 1;
     background-color:rgba(0,0,0,0.5);
     border: 0px;
     height: 70px;
+    width: 100%;
     color: aliceblue;
    
 }
@@ -39,6 +50,7 @@
 }
 .btn{
     border: 0;
+   
 }
 .btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover{
     background-color:rgba(0,0,0,0.5);
@@ -70,11 +82,9 @@
     background-color:rgba(0,0,0,0.5);
     font-size: 30px;
 }
-.container-fluid{
-    display: flex;
-    
-}
-.most-viewd{
+.new{
+    position: relative;
+    width: 100%;
     height: 100%;
 }
 
