@@ -58,13 +58,11 @@ html, body, main,contai {
     background-color:rgba(0,0,0,0.5);
     border: 0px;
     height: 70px;
-    max-width: 100%;
+    
     padding: 0;
     margin: 0;
     color: aliceblue;
-    position: fixed;
-    top:0;
-    order: 1;
+  
    
 }
 .navbar button, btn-group{
@@ -118,12 +116,28 @@ html, body, main,contai {
     display: flex;
     flex-wrap: wrap;
 }
+
 .new > div{
     width: 33.3%;
-    background-size: contain;
+    background-size: cover;
     background-image: url(christian-koch-79679-unsplash.jpg);
     background-repeat: no-repeat;
-    height: 240px;
+    height: 250px;
+    transition: transform .2s;
+}
+@media only screen and (max-width: 600px)  {
+    .new > div{
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 601px)and (max-width: 1050px)  {
+    .new > div{
+        width: 50%;
+    }
+}
+
+.new > div:hover{
+    transform: scale(1.2); 
 }
 .col-sm-12{
    padding: 0;
