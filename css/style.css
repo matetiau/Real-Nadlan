@@ -50,7 +50,8 @@ html, body, main,contai {
     
 }
 .form-group{
-    width: 70%;
+    width: 100%;
+    display: flex;
 }
 
 .navbar.navbar-inverse{
@@ -62,11 +63,13 @@ html, body, main,contai {
     position: fixed;
     top: 0px;
     width: 100%;
-    height: 70px;
+    height: 90px;
 }
 .navbar-brand{
     position: absolute;
-    left: 0px;
+    left: 10px;
+    top: 10px;
+    z-index: 2;
 }
 .navbar.navbar-inverse .navbar-nav>li>a{
 	color:#FBFBFD;
@@ -79,7 +82,14 @@ html, body, main,contai {
 }
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-toggle{
 	border:0px;
-    float: right;
+   
+}
+.navbar-collapse{
+      width: 100%;
+    padding-left: 0;
+        height: 300px;
+        margin-top: 20px;
+            text-align: center;
 }
 .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover{
 	background-color: #0FB654;
@@ -87,12 +97,66 @@ html, body, main,contai {
 .nav-tabs{
     border:0px;
     height: 70px;
+    width: 90%;
+    padding-right: 0;
+}
+.nav-tabs > li{
+    width: 33.33%;
+}
+.collapse{
+    width: 90%;
+    padding-left: 0;
+}
+@media (max-width: 768px){
+    .nav-tabs > li{
+    width: 100%;
+}
+    .container-fluid>.navbar-collapse{
+        margin:40px 0 0 0;
+        padding: 0;
+    }
+    .nav-tabs{
+        width: 100%;
+        margin:0 0 0 0;
+    }
+.navbar-form{
+   flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+ 
+    
+    .navbar-form > .dropdown  {
+        width: 50%;
+        margin: 3% 0 0 0;
+        text-align: center;
+        order: 2;
+    }   
+    input.form-control{
+        width: 100%;
+    }
+}
+.navbar-toggle{
+    margin:20px 20px 0 0;
+}
+.navbar-brand{
+    margin-left:10px;
+}
+.in{
+     width: 100%;
+    padding-left: 0;
+        height: 300px;
+        margin-top: 40px
 }
 .nav-tabs .btn-default{
     height: 70px;
    background-color:rgba(0,0,0,0.5);
     color: aliceblue;
     font-size: 30px;
+    border: 0;
+    text-align: center;
+    width: 100%;
+    padding: 0;
 }
 
 
@@ -121,6 +185,10 @@ html, body, main,contai {
     color: aliceblue;
     
 }
+   .nav-bar-down .dropdown ul a{
+        background-color: aliceblue;
+        color: black;
+    }
 .dropdown-menu li a:hover{
     color: aliceblue;
     background-color:rgba(0,0,0,0.5);
