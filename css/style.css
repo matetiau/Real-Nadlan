@@ -188,7 +188,14 @@ html, body, main,contai {
    .nav-bar-down .dropdown ul a{
         background-color: aliceblue;
         color: black;
+       font-size: 15px;
+       
     }
+.nav-bar-down .dropdown ul a:hover{
+    background-color: lightgray;
+        color: black;
+       font-size: 15px;
+}
 .dropdown-menu li a:hover{
     color: aliceblue;
     background-color:rgba(0,0,0,0.5);
