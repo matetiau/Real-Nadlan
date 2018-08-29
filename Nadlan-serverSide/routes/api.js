@@ -22,12 +22,17 @@ router.get('/houses',(req, res) => {
   });
   
 // add new house 
-  router.post('/houses/addNew',(req, res) => {
+router.post('/houses/addNew',(req, res) => {
     const house = {
-      id: courses.length +1,
-      type: req.body.type
+      id: houses.length +1,
+      type: req.body.type,
+      typeTr: req.body.typeTr,
+      area: req.body.area,
+      rooms: req.body.rooms
 
     }
+    houses.push(house);
+    res.send(house);
    
   });
 
