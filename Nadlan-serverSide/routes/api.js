@@ -2,13 +2,16 @@ const express = require('express');
 const router = express.Router();
 
 const houses = [
-    {id: 1 , type: 'דירה', area: 'מרכז'},
-    {id: 2 , type: 'דירה', area: 'מרכז'},
-    {id: 3 , type: 'דירה', area: 'דרום'},
-    {id: 4 , type: 'דירה', area: 'צפון'},
-    {id: 5 , type: 'דירה', area: 'מרכז'},
-    {id: 6 , type: 'דירה', area: 'דרום'},
-    {id: 7 , type: 'דירה', area: 'צפון'},
+    {id: 1 ,typeTr:"השכרה", type: 'דירה', area: 'מרכז',rooms: 2},
+    {id: 2 ,typeTr:"השכרה", type: 'דירה', area: 'מרכז',rooms: 4},
+    {id: 3 ,typeTr:"מכירה", type: 'דירה', area: 'דרום',rooms: 1},
+    {id: 4 ,typeTr:"השכרה", type: 'קרקע', area: 'צפון',size: 500+"מטר"},
+    {id: 5 ,typeTr:"מכירה", type: 'דירה', area: 'מרכז',rooms: 2},
+    {id: 6 ,typeTr:"השכרה", type: 'בית-פרטי', area: 'דרום',rooms: 4},
+    {id: 7 ,typeTr:"השכרה", type: 'דירה', area: 'צפון',rooms: 3},
+    {id: 8 ,typeTr:"השכרה", type: 'דירה', area: 'מרכז',rooms: 2},
+    {id: 9 ,typeTr:"השכרה", type: 'דירה', area: 'דרום',rooms: 4},
+    {id: 10 ,typeTr:"השכרה", type: 'בית-פרטי', area: 'צפון',rooms: 3},
   ];   
 
 
@@ -19,8 +22,12 @@ router.get('/houses',(req, res) => {
   });
   
 // add new house 
-  router.get('/houses/addNew',(req, res) => {
-    res.send({type:'POST'});
+  router.post('/houses/addNew',(req, res) => {
+    const house = {
+      id: courses.length +1,
+      type: req.body.type
+
+    }
    
   });
 
