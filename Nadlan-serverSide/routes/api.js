@@ -21,8 +21,21 @@ router.get('/houses',(req, res) => {
    
   });
   
+//get all houses for rent
+router.get('/houses/:typeTr',(req, res) => {
+  const resulta = houses.filter(house => house.typeTr=== (req.params.typeTr));
+  if (resulta === undefined){
+    res.send(404);
+  } else {
+
+  
+  res.send(resulta);}
+  res.end();
+});
+
 // add new house 
 router.post('/houses/addNew',(req, res) => {
+    res.send(houses); 
     const house = {
       id: houses.length +1,
       type: req.body.type,
