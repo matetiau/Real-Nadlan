@@ -92,14 +92,8 @@ carousel-inner .image{
     background-color: beige;
 }
 
-h3:hover{
-    background-color: green;
-    color:white;
-}
-h1{
-    font-size: 5.5vh;
-    
-}
+
+
 .email{
     text-decoration: none;
 }
