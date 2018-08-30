@@ -1,5 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const path = require('path');
+let reqPath = path.join(__dirname, '../public/html-files');
+router.use(express.static('public'));
+
+router.use(express.json());
+
 
 const houses = [
     {id: 1 ,typeTr:"השכרה", type: 'דירה', area: 'מרכז',rooms: 2},
@@ -15,12 +21,28 @@ const houses = [
   ];   
 
 
+
+  // one house specs
+  router.get('/houses/:id',(req, res) => {
+    res.sendFile(reqPath + '/for-home.html');
+    const resulta = houses.filter(house => house.id=== (req.params.id));
+  if (resulta === undefined){
+    res.send(404);
+  } else {
+
+  res.write()
+  res.send(resulta);}
+  res.end();
+   
+  });
+
 //get all houses
 router.get('/houses',(req, res) => {
     res.send(houses);
    
   });
   
+
 //get all houses for rent
 router.get('/houses/:typeTr',(req, res) => {
   const resulta = houses.filter(house => house.typeTr=== (req.params.typeTr));
@@ -50,11 +72,7 @@ router.post('/houses/addNew',(req, res) => {
   });
 
 
-// change specs of house
-router.put('/houses/:id',(req, res) => {
-  res.send({type:'PUT'});
- 
-});
+
 
 //delete house
 router.delete('/houses/:id',(req, res) => {
@@ -62,16 +80,5 @@ router.delete('/houses/:id',(req, res) => {
  
 });
 
-  /*router.get('/houses/:area',(req, res) => {
-    const resulta = houses.filter(house => house.area === (req.params.area));
-    if (resulta === undefined){
-      res.send(404);
-    } else {
-  
-    
-    res.send(resulta);}
-    res.end();
-    
-  });*/
 
   module.exports = router;
