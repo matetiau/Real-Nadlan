@@ -10,10 +10,9 @@ var apiRouter = require('./routes/api');
 var app = express();
 
 
-app.set('views', path.join(__dirname, 'views'));
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
 
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
 
 
 // view engine setup

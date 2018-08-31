@@ -45,7 +45,7 @@ router.get('/houses-one/:id',(req, res) => {
   const price = resulta.price;
 
 
-res.render(reqPath + '/for-home.html', 
+res.render('list', 
             {type:type ,
               rooms:rooms ,
               area:area ,
@@ -62,16 +62,14 @@ res.render(reqPath + '/for-home.html',
 
 //get all houses
 router.get('/houses',(req, res) => {
-  /*
+   
     const numbers = houses.length;
     for(let i = 0;i<numbers;i++){
-      if (i ===9){
-        responseText += <li> + JSON.stringify(houses[i].type) +'</li>;
-      } else {
-      responseText += '<li>' + JSON.stringify(houses[i].type) +'</li>';
+      res.render(reqPath +'/for-many-houses.html', {list:JSON.stringify(houses)});
       
-    }}*/
-    res.render(reqPath +'/layout');
+      
+    }
+  
   
 
 

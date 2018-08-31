@@ -1,0 +1,124 @@
+doctype html
+html(dir='rtl')
+  head
+    title זה הבית נדלן
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+    link(href='https://fonts.googleapis.com/css?family=Rubik', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/style2.css')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa', crossorigin='anonymous')
+  body
+    // - navbar
+    .up
+      nav.navbar.navbar-inverse
+        .container-fluid
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='/')
+              img(alt='Brand', src='http://localhost:3000/api/images/logo.jpg', style='height: 50px;')
+              div
+          #myNavbar.collapse.navbar-collapse
+            ul.nav.navbar-nav.nav-tabs(role='tablist')
+              li
+                .dropdown
+                  button#dropdownMenu1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
+                    | פרסומים
+                    span.caret
+                  ul.dropdown-menu(aria-labelledby='dropdownMenu1')
+                    li
+                      a(href='http://localhost:3000/api/houses/השכרה') השכרה
+                    li
+                      a(href='http://localhost:3000/api/houses/מכירה') מכירה
+              li
+                button.btn.btn-default(type='button')
+                  | כניסה לחשבון 
+                  i.fas.fa-user-alt
+              li
+                a(href='api/houses/addNew')
+                  button.btn.btn-default(type='button', style='background-color: #0FB654') פרסום מודעה
+      // - carousel
+      .container-fluid.row.main(style='position:relative;')
+        #carou.col-md-8.carou
+          #catalog-slider.carousel.slide(data-ride='carousel')
+            // - indicators dot nov
+            ol.carousel-indicators
+              li.active(data-target='#catalog-slider', data-slide-to='0')
+              li(data-target='#catalog-slider', data-slide-to='1')
+              li(data-target='#catalog-slider', data-slide-to='2')
+            // - wrapper slides
+            .carousel-inner(role='listbox')
+              .item.active
+                img(src='../images/jamie-street-94244-unsplash.jpg', alt='front', style='height: 75vh; width: 100%;')
+                .carousel-caption
+                  h1 קדימה של הבית
+              .item
+                img(src='../images/jessica-furtney-244838-unsplash.jpg', alt='back', style='height: 75vh; width: 100%;')
+                .carousel-caption
+                  h1 קדימה של הבית
+              .item
+                img(src='../images/jessica-furtney-244838-unsplash.jpg', alt='back', style='height: 75vh; width: 100%;')
+                .carousel-caption
+                  h1 אחורה של הבית
+            // - controls
+            a.left.carousel-control(href='#catalog-slider', role='button', data-slide='next')
+              span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+              span.sr-only Previous
+            a.right.carousel-control(href='#catalog-slider', role='button', data-slide='prev')
+              span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+              span.sr-only Previous
+        // - house specs
+        .col-md-4.spec.text-center.house-spec
+          h3.title סוג
+          h4  #{type} 
+          hr
+          h3.title אזור
+          h4  #{area} 
+          hr
+          h3.title חדרים
+          h4 #{rooms} 
+          hr
+          h3.title מדיה
+          h4 מזגן מרכזי, חניה ,מרפסת
+          hr
+          h3.title מחיר
+          h4  #{price}
+          hr
+        // - map
+        .col-md-8.map
+          #map
+        // - contact
+        .col-md-4.contact.text-center.house-spec
+          h1.title שם
+          h3 יוסי
+          hr
+          h1.title טלפון
+          h3 0546217559
+          hr
+          h1.title מאייל
+          h3
+            button.btn.btn-default.btn-success.email
+              a(href='mailto:kamer1989@gmail.com') איימאל למוכר
+          h1.title דרכי קשר נופסים
+          h3 skype:extasy2134
+          hr
+        // - about site and linksr
+        .col-md-12
+          .col-md-4
+          .col-md-4
+          .col-md-4
+      script.
+        var map;
+        function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 32.080198, lng: 34.770212},
+        zoom: 15
+        });
+        }
+      script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAngKksHXZYTUrdKk3FxU1SPQbn5H3kOtA&callback=initMap', async='', defer='')
+      script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
+      script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
