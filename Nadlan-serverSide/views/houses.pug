@@ -1,0 +1,55 @@
+doctype html
+html(dir='rtl')
+  head
+    title זה הבית נדלן
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+    link(href='https://fonts.googleapis.com/css?family=Rubik', rel='stylesheet')
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.2.0/css/all.css', integrity='sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ', crossorigin='anonymous')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+    link(rel='stylesheet', type='text/css', href='css/font/flaticon.css')
+  body
+    main
+      .contai
+        // Nav-Bar
+        .up
+          nav.navbar.navbar-inverse
+            .container-fluid
+              .navbar-header
+                button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
+                  span.icon-bar
+                  span.icon-bar
+                  span.icon-bar
+                a.navbar-brand(href='/')
+                  img(alt='Brand', src='http://localhost:3000/api/images/logo.jpg', style='height: 50px;')
+                  div
+              #myNavbar.collapse.navbar-collapse
+                ul.nav.navbar-nav.nav-tabs(role='tablist')
+                  li
+                    .dropdown
+                      button#dropdownMenu1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
+                        | פרסומים
+                        span.caret
+                      ul.dropdown-menu(aria-labelledby='dropdownMenu1')
+                        li
+                          a(href='api/houses/השכרה') השכרה
+                        li
+                          a(href='api/houses/מכירה') מכירה
+                  li
+                    button.btn.btn-default(type='button')
+                      | כניסה לחשבון 
+                      i.fas.fa-user-alt
+                  li
+                    a(href='api/houses/addNew')
+                      button.btn.btn-default(type='button', style='background-color: #0FB654') פרסום מודעה
+      // list of houses
+      .listOfHomes(style='position:relative;')
+      - var values = list;
+      ul
+        each val in values
+            li= JSON.stringify(val)
+        else
+            li There are no values
+      script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
+      script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')

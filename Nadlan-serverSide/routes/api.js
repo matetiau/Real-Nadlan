@@ -63,18 +63,11 @@ res.render('list',
 //get all houses
 router.get('/houses',(req, res) => {
    
-    const numbers = houses.length;
-    for(let i = 0;i<numbers;i++){
-      res.render(reqPath +'/for-many-houses.html', {list:JSON.stringify(houses)});
+    
+      res.render('houses', {list:houses});
       
       
-    }
-  
-  
-
-
-
-  });
+    });
   
 
 
