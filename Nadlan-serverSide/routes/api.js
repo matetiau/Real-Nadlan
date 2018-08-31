@@ -26,28 +26,39 @@ const houses = [
 
 
 
-  // one house specs
-  router.get('/houses/:id',(req, res) => {
+// all houses for rent or sale
+  router.get('/houses/:typeTr',(req, res) => {
 
-    const resulta = houses.find(house => house.id === parseInt(req.params.id));
-    const type = resulta.type;
-    const rooms = resulta.rooms;
-    const area = resulta.area;
-    const price = resulta.price;
+      resulta = houses.filter(house => house.typeTr === req.params.typeTr)
+    res.send(resulta)});
+      
 
 
+// specfic house
 
-    res.render(reqPath + '/for-home.html', 
-                {type:type ,
-                  rooms:rooms ,
-                  area:area ,
-                  price : price + "שקל"
+router.get('/houses-one/:id',(req, res) => {
+  const resulta = houses.find(house => house.id === parseInt(req.params.id));
+  
+  const type = resulta.type;
+  const rooms = resulta.rooms;
+  const area = resulta.area;
+  const price = resulta.price;
 
-              
-              
-              });
+
+res.render(reqPath + '/for-home.html', 
+            {type:type ,
+              rooms:rooms ,
+              area:area ,
+              price : price + "שקל"
+
+          
+          
+          });
+
     
-  });
+        });
+
+
 
 //get all houses
 router.get('/houses',(req, res) => {
@@ -56,18 +67,7 @@ router.get('/houses',(req, res) => {
   });
   
 
-//get all houses for rent
-router.get('/houses/:typeTr',(req, res) => {
-  
-  const resulta = houses.filter(house => house.typeTr=== (req.params.typeTr));
-  if (resulta === undefined){
-    res.send(404);
-  } else {
 
-  
-  res.send(resulta);}
-  res.end();
-});
 
 // add new house 
 router.post('/houses/addNew',(req, res) => {

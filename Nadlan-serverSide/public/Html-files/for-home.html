@@ -18,25 +18,40 @@
     
     <!--- navbar -->
     
-    
-    
-    
-  
-        <div class="container-fluid row top">
-    <div class="col-md-1">
-       
-   
-     
-        <img src="images/logo.jpg" class="img-responsive logo img-left" alt="logo"> 
-    </div>
-    
-    
-    
-       <div class="col-md-11">
-   <button type="button" class="btn btn-default navbar-btn knisa">כניסה לחשבון</button>
-   </div>
-   
-    </div>
+    <div  class="up">
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
+              </button>
+              <a class="navbar-brand" href="#">
+                <img alt="Brand" src="images/logo.jpg" style="height: 50px;">
+              <div></div></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                  <ul class="nav navbar-nav nav-tabs" role="tablist">
+                    
+                    <li> <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            פרסומים
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="http://localhost:3000/api/houses/השכרה">השכרה</a></li>
+            <li><a href="http://localhost:3000/api/houses/מכירה">מכירה</a></li>
+            
+          </ul>
+        </div></li>
+                    <li><button type="button" class="btn btn-default">כניסה לחשבון <i class="fas fa-user-alt"></i></button></li>
+                
+                    <li><a href="api/houses/addNew"><button type="button" class="btn btn-default" style="background-color: #0FB654">פרסום מודעה</button></a></li>
+                  </ul>
+                </div>
+          </div>
+        </nav>
            
 
     
@@ -45,7 +60,7 @@
     
     
     
-    <div class="container-fluid row main">
+    <div style="position:relative;" class="container-fluid row main">
         <div class="col-md-8 carou" id="carou">
           <div id ="catalog-slider" class="carousel slide" data-ride="carousel">
               
