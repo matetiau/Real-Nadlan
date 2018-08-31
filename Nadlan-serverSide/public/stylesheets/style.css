@@ -270,3 +270,12 @@ html, body, main,contai {
     font-size: 40px;
 }
 
+
+
+
+
+/*style of list group from many houseses view*/
+.general{
+    list-style: none;
+}
+
