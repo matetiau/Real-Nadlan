@@ -28,6 +28,7 @@ const houses = [
 
   // one house specs
   router.get('/houses/:id',(req, res) => {
+
     const resulta = houses.find(house => house.id === parseInt(req.params.id));
     const type = resulta.type;
     const rooms = resulta.rooms;
@@ -57,6 +58,7 @@ router.get('/houses',(req, res) => {
 
 //get all houses for rent
 router.get('/houses/:typeTr',(req, res) => {
+  
   const resulta = houses.filter(house => house.typeTr=== (req.params.typeTr));
   if (resulta === undefined){
     res.send(404);
