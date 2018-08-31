@@ -6,7 +6,7 @@ router.use(express.static('public'));
 var bodyParser = require('body-parser')
 router.use(express.json());
 
-router.use(bodyParser.urlencoded({ extended: false }))
+
 
 // parse application/json
 router.use(bodyParser.json())
@@ -62,8 +62,20 @@ res.render(reqPath + '/for-home.html',
 
 //get all houses
 router.get('/houses',(req, res) => {
-    res.send(houses);
-   
+  /*
+    const numbers = houses.length;
+    for(let i = 0;i<numbers;i++){
+      if (i ===9){
+        responseText += <li> + JSON.stringify(houses[i].type) +'</li>;
+      } else {
+      responseText += '<li>' + JSON.stringify(houses[i].type) +'</li>';
+      
+    }}*/
+    res.render(reqPath +'/layout');
+  
+
+
+
   });
   
 
