@@ -33,9 +33,9 @@ html(dir='rtl')
                         span.caret
                       ul.dropdown-menu(aria-labelledby='dropdownMenu1')
                         li
-                          a(href='api/houses/השכרה') השכרה
+                          a(href='http://localhost:3000/api/houses/השכרה') השכרה
                         li
-                          a(href='api/houses/מכירה') מכירה
+                          a(href='http://localhost:3000/api/houses/מכירה') מכירה
                   li
                     button.btn.btn-default(type='button')
                       | כניסה לחשבון 
@@ -52,7 +52,7 @@ html(dir='rtl')
                     ul.list-group.koko
                             img(src='images/mini.jpg', alt='logo')
 
-                            li.list-group-item=div+ JSON.stringify(val.type) 
+                            li.list-group-item=JSON.stringify(val.type) 
                             li.list-group-item=JSON.stringify(val.typeTr) 
                             li.list-group-item=JSON.stringify(val.area) 
                             li.list-group-item=JSON.stringify(val.rooms)

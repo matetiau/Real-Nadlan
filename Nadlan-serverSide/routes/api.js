@@ -30,9 +30,10 @@ const houses = [
   router.get('/houses/:typeTr',(req, res) => {
 
       resulta = houses.filter(house => house.typeTr === req.params.typeTr)
-    res.send(resulta)});
+    res.render('houses', {list:resulta})});
       
-
+  
+  
 
 // specfic house
 
