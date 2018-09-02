@@ -44,30 +44,20 @@ html(dir='rtl')
                     a(href='api/houses/addNew')
                       button.btn.btn-default(type='button', style='background-color: #0FB654') פרסום מודעה
       // list of houses
-      .listOfHomes(style='position:absolute;')
+      
       - var values = list;
-      ul.list-group
         each val in values
                 
-                li.list-group-item=x JSON.stringify(val.type)
-                
-                li.list-group-item= JSON.stringify(val.typeTr)
-                 h5 אזור
-                li.list-group-item= JSON.stringify(val.area)
-                 h5 מספר חדרים
-                li.list-group-item= JSON.stringify(val.rooms)
-                 h5 מחיר
-                li.list-group-item= JSON.stringify(val.price)
-                
-        else
-            li There are no values
-ul.general
-  ul.under
-  li
-  li
-  li
-  li
-  li
+                .kokoaa
+                    ul.list-group.koko
+                            img(src='images/mini.jpg', alt='logo')
+
+                            li.list-group-item=div+ JSON.stringify(val.type) 
+                            li.list-group-item=JSON.stringify(val.typeTr) 
+                            li.list-group-item=JSON.stringify(val.area) 
+                            li.list-group-item=JSON.stringify(val.rooms)
+                            li.list-group-item.price=JSON.stringify(val.price)
+                  
 
 
 

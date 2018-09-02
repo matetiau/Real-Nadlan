@@ -278,4 +278,23 @@ html, body, main,contai {
 .general{
     list-style: none;
 }
-
+.koko{
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+.kokoaa{
+    margin: 120px 120px 0 120px;
+    line-height: 200px;
+}
+.koko > li {
+    width: 15%;
+    font-size: 25px;
+    text-align: center;
+    vertical-align: middle;
+    
+}
+.price{
+    font-size: 25px !important;
+    color: tomato;
+}
