@@ -50,7 +50,9 @@ html(dir='rtl')
                 
                 .kokoaa
                     ul.list-group.koko
-                            img(src='images/mini.jpg', alt='logo')
+                            a(href='http://localhost:3000/api/houses-one/' + val.id) 
+                              img(src='http://localhost:3000/api/images/mini.jpg', alt='logo')
+
 
                             li.list-group-item=JSON.stringify(val.type) 
                             li.list-group-item=JSON.stringify(val.typeTr) 
