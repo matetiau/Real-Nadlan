@@ -298,3 +298,10 @@ html, body, main,contai {
     font-size: 25px !important;
     color: tomato;
 }
+.house-link{
+    color: #8F8F8F;
+}
+.house-link:hover{
+    text-decoration: none;
+    color: #8F8F8F;
+}
