@@ -23,12 +23,12 @@ const houses = [
     {id: 9 ,typeTr:"השכרה", type: 'דירה', area: 'דרום',rooms: 4,price: 2000000},
     {id: 10 ,typeTr:"השכרה", type: 'בית-פרטי', area: 'צפון',rooms: 3,price: 1500000},
   ];   
-
+  
 
 
 // all houses for rent or sale
   router.get('/houses/:typeTr',(req, res) => {
-
+    
       resulta = houses.filter(house => house.typeTr === req.params.typeTr)
     res.render('houses', {list:resulta})});
       
@@ -63,13 +63,13 @@ res.render('list',
 
 //get all houses
 router.get('/houses',(req, res) => {
-   
+  var port = process.env.PORT || 3000;
+  console.log('Example app listening on port ' + port + '!');
     
-      res.render('houses', {list:houses});
-      
-      
+      res.render('houses', {list:houses,port:port});
+
     });
-  
+   
 
 
 
@@ -88,6 +88,8 @@ router.post('/houses/addNew',(req, res) => {
     res.send(house);
    
   });
+
+// registration
 
 
 

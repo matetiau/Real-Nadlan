@@ -1,0 +1,31 @@
+doctype html
+html(dir='rtl')
+  head
+  title זה הבית נדלן
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+  link(href='https://fonts.googleapis.com/css?family=Rubik', rel='stylesheet')
+  link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.2.0/css/all.css', integrity='sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ', crossorigin='anonymous')
+  link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+  link(rel='stylesheet', type='text/css', href='css/font/flaticon.css')
+main
+    .row
+      .col-md-6.col-md-offset-3
+        h1.display-4.m-b-2 הרשמה
+
+        // register form
+        form(method='POST' action='/register')
+          div.form-group
+            label(for='name') שם ושם משפחה:
+            input#name.form-control(type='text', placeholder='first and last' name='name')
+          div.form-group
+            label(for='email') מאייל:
+            input#email.form-control(type='email', placeholder='name@email.com' name='email')
+          div.form-group
+            label(for='pw') סיסמה:
+            input#pw.form-control(type='password' name='password')
+          div.form-group
+            label(for='pw2') אימות סיסמה:
+            input#pw2.form-control(type='password' name='confirmPassword')
+          button.btn.btn-primary(type='submit') הרשמה

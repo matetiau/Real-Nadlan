@@ -156,9 +156,11 @@ html, body, main,contai {
     border: 0;
     text-align: center;
     width: 100%;
-    padding: 0;
+    padding: 0px;
 }
-
+li a{
+    padding: 0px;
+}
 
 .btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover{
     background-color:rgba(0,0,0,0.5);
