@@ -38,7 +38,7 @@ main
                     li
                       a(href='api/houses/מכירה') מכירה
               li
-                button.btn.btn-primary(type='button', data-toggle='modal', data-target='.bs-example-modal-sm') 
+                button.btn.btn-default(type='button', data-toggle='modal', data-target='.bs-example-modal-sm') 
                   | כניסה לחשבון 
                   i.fas.fa-user-alt
               li
@@ -131,10 +131,7 @@ main
           .modal.fade.bs-example-modal-sm(tabindex='-1', role='dialog', aria-labelledby='mySmallModalLabel')
             .modal-dialog.modal-sm(role='document')
               .modal-content
-                form#form1(method='POST' action='/register')
-                  div.form-group
-                    label(for='name') שם ושם משפחה:
-                    input#name.form-control(type='text', placeholder='first and last' name='name')
+                
                 div.form-group
                     label(for='email') מאייל:
                     input#email.form-control(type='email', placeholder='name@email.com' name='email')
@@ -145,7 +142,8 @@ main
                     label(for='pw2') אימות סיסמה:
                     input#pw2.form-control(type='password' name='confirmPassword')
                 button.btn.btn-primary(type='submit') הרשמה
-
+                .fb-login-button(data-max-rows='1', data-size='large', data-button-type='continue_with', data-show-faces='false', data-auto-logout-link='false', data-use-continue-as='false')
+                <div id="fb-root"></div>
          
             script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
             script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')

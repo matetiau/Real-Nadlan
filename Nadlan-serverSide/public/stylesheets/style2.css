@@ -232,3 +232,6 @@ a{
 a:active {
     text-decoration: none;
 }
+.price{
+    color: red;
+}
