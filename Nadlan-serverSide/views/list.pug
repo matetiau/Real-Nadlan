@@ -79,8 +79,9 @@ html(dir='rtl')
           h2.title אזור
           h4  #{area} 
           hr
-          h2.title חדרים
-          h4 #{rooms} 
+          if parseFloat(rooms) > 0                     
+           h2.title חדרים
+           h4 #{rooms} 
           hr
           h2.title מדיה
           h4 מזגן מרכזי, חניה ,מרפסת

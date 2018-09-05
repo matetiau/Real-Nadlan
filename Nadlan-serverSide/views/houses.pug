@@ -53,11 +53,12 @@ html(dir='rtl')
                             ul.list-group.koko
                             
                                 img(src='http://localhost:3000/api/images/mini.jpg', alt='logo')
-
+                                
                                 li.list-group-item=JSON.stringify(val.type) 
                                 li.list-group-item=JSON.stringify(val.typeTr) 
                                 li.list-group-item=JSON.stringify(val.area) 
-                                li.list-group-item=JSON.stringify(val.rooms)
+                                if parseFloat(val.rooms) > 0
+                                  li.list-group-item=JSON.stringify(val.rooms)
                                 li.list-group-item.price=JSON.stringify(val.price)
                   
 

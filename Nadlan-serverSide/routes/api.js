@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
+const mysql = require('mysql');
 let reqPath = path.join(__dirname, '../public/html-files');
 router.use(express.static('public'));
 var bodyParser = require('body-parser')
