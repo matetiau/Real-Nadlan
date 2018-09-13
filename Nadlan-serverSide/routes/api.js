@@ -141,10 +141,26 @@ router.post('/log',urlencodedParser, (req, res) => {
 // login
 router.get('/login',urlencodedParser, (req, res) => {
   res.render('login');
+  
 });
 
 
 
+router.post('/login',urlencodedParser, (req, res) => {
+const acca = {
+  email: req.body.email,
+  password: req.body.password};
+  
+
+  if (accounts.find(acc =>acc.email === req.body.email )){
+    res.send({type:"Logged in "});
+    console.log('you are logged in');
+    let log = true;}
+    else {
+      res.send({type:"incorrect"});
+      console.log('there is no account like this or password is incorect');
+      let log = false;}
+    });
 
 
 
