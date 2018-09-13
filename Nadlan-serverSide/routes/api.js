@@ -121,8 +121,8 @@ router.post('/log',urlencodedParser, (req, res) => {
   
   const account = {
     id: accounts.length +1,
-    email: req.body.email
-
+    email: req.body.email,
+    password: req.body.password
   }
   if (accounts.find(acc => acc.email === req.body.email)){
     console.log('you have acc here ' + JSON.stringify(accounts));
