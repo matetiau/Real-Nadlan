@@ -125,7 +125,7 @@ router.post('/log',urlencodedParser, (req, res) => {
 
   }
   if (accounts.find(acc => acc.email === req.body.email)){
-    console.log('you have acc here ' + accounts[0].email);
+    console.log('you have acc here ' + JSON.stringify(accounts));
     res.send({type:'you already have an account log in'});
   } else {
     accounts.push(account);
@@ -138,7 +138,10 @@ router.post('/log',urlencodedParser, (req, res) => {
 
 
 
-
+// login
+router.get('/login',urlencodedParser, (req, res) => {
+  res.render('login');
+});
 
 
 
