@@ -105,32 +105,43 @@ router.post('/houses/addNew',(req, res) => {
   });
 
 // registration
+
+
+router.get('/log', (req, res) => {
+  
+  res.render('reg');
+ 
+  
+});
+
+
 router.post('/log',urlencodedParser, (req, res) => {
+  
+
+  
   const account = {
     id: accounts.length +1,
     email: req.body.email
 
   }
-  if (accounts.includes(acc => acc.email === parseInt(req.body.email))){
-    console.log('you have acc here');
+  if (accounts.find(acc => acc.email === req.body.email)){
+    console.log('you have acc here ' + accounts[0].email);
+    res.send({type:'you already have an account log in'});
   } else {
     accounts.push(account);
-    
+    console.log(JSON.stringify(accounts) + 'added');
+    res.send({type:'new account created'});
   };
 
 
-  
-  
-
-  
 });
 
-router.get('/log/in',urlencodedParser, (req, res) => {
-  
-  res.send({type:'logeed in'});
- 
-  
-});
+
+
+
+
+
+
 
 
 

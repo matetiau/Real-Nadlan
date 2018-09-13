@@ -38,7 +38,7 @@ main
                     li
                       a(href='api/houses/מכירה') מכירה
               li
-                a(href='#forma')
+                a(href='api/log')
                   button.btn.btn-default( type='button', data-toggle='modal', data-target='.bs-example-modal-sm')
                   | כניסה לחשבון 
                   i.fas.fa-user-alt
@@ -173,15 +173,7 @@ main
         
         
           // reg form   
-    .modal.fade.bs-example-modal-sm(tabindex='-1', role='dialog', aria-labelledby='mySmallModalLabel')
-        .modal-dialog.modal-sm(role='document')
-          .modal-content
-            form(method='' action='/api/log')
-              div.form-group
-                  label(for='email') מאייל:
-                  input#email.form-control(type='email', placeholder='name@email.com' name='email')
-                  input(type="submit" value="הרשמה")
-
+    
 
 
 

@@ -15,7 +15,7 @@ main
         h1.display-4.m-b-2 הרשמה
 
         // register form
-        form(method='POST' action='/register')
+        form(method='POST' action='/api/log')
           div.form-group
             label(for='name') שם ושם משפחה:
             input#name.form-control(type='text', placeholder='first and last' name='name')
@@ -28,4 +28,4 @@ main
           div.form-group
             label(for='pw2') אימות סיסמה:
             input#pw2.form-control(type='password' name='confirmPassword')
-          button.btn.btn-primary(type='submit') הרשמה
+          input( type="submit" value="הרשמה")
