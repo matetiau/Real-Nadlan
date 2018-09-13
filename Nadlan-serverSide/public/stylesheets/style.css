@@ -211,6 +211,7 @@ li a{
     padding: 0;
     display: flex;
     flex-wrap: wrap;
+    z-index: 0;
 }
 
 .new > div{
@@ -335,4 +336,27 @@ li a{
 .modal-content >div{
     width: 80%;
     
+}
+/* description for houses in pros ads */
+.desc{
+    z-index: 1;
+    color: aliceblue;
+    font-size: 30px;
+    padding: 2%;
+    display: flex;
+}
+.desc > div{
+    align-self: flex-end;
+}
+
+/* footer */
+
+.footer{
+    display: flex;
+    width: 100%;
+    background-color: #F8F8F8;
+}
+.footer > div {
+    width: 33.33%;
+    text-align: center;
 }

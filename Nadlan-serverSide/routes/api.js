@@ -2,11 +2,20 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const mysql = require('mysql');
+
+
 let reqPath = path.join(__dirname, '../public/html-files');
+
+
+
+
 router.use(express.static('public'));
-var bodyParser = require('body-parser')
 router.use(express.json());
 
+
+
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 
 // parse application/json
@@ -24,7 +33,11 @@ const houses = [
     {id: 9 ,typeTr:"השכרה", type: 'דירה', area: 'דרום',rooms: 4,price: 2000000},
     {id: 10 ,typeTr:"השכרה", type: 'בית-פרטי', area: 'צפון',rooms: 3,price: 1500000},
   ];   
-  
+
+const accounts = [
+   
+];
+
 
 
 // all houses for rent or sale
@@ -68,7 +81,7 @@ router.get('/houses',(req, res) => {
   console.log('Example app listening on port ' + port + '!');
     
       res.render('houses', {list:houses,port:port});
-
+      console.log(houses);
     });
    
 
@@ -85,21 +98,56 @@ router.post('/houses/addNew',(req, res) => {
       rooms: req.body.rooms
 
     }
+    
     houses.push(house);
     res.send(house);
    
   });
 
 // registration
+router.post('/log',urlencodedParser, (req, res) => {
+  const account = {
+    id: accounts.length +1,
+    email: req.body.email
 
+  }
+  if (accounts.includes(acc => acc.email === parseInt(req.body.email))){
+    console.log('you have acc here');
+  } else {
+    accounts.push(account);
+    
+  };
+
+
+  
+  
+
+  
+});
+
+router.get('/log/in',urlencodedParser, (req, res) => {
+  
+  res.send({type:'logeed in'});
+ 
+  
+});
 
 
 
 //delete house
 router.delete('/houses/:id',(req, res) => {
+  const resulta = houses.find(house => house.id === parseInt(req.params.id));
+  houses.splice(0,1,resulta);
+  console.log(resulta);
+});
+
+
+
+//registration
+
+router.delete('/houses/:id',(req, res) => {
   res.send({type:'DELETE'});
  
 });
-
 
   module.exports = router;

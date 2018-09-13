@@ -38,7 +38,8 @@ main
                     li
                       a(href='api/houses/מכירה') מכירה
               li
-                button.btn.btn-default(type='button', data-toggle='modal', data-target='.bs-example-modal-sm') 
+                a(href='#forma')
+                  button.btn.btn-default( type='button', data-toggle='modal', data-target='.bs-example-modal-sm')
                   | כניסה לחשבון 
                   i.fas.fa-user-alt
               li
@@ -95,12 +96,30 @@ main
           a.btn.btn-default.search-btn(href='#', role='button') חפש
     h2(style='width: 100%; text-align: center;') פרסומים מקודמים היום
     .new
-      div das
-      div dasd
-      div das
-      div dasd
-      div dasd
-      div dasd
+      div.desc 
+        div
+          h3 500000 שקל
+          h5 koko
+      div.desc
+        div
+          h3 500000 שקל
+          h5 koko
+      div.desc
+        div
+          h3 500000 שקל
+          h5 koko
+      div.desc
+        div
+          h3 500000 שקל
+          h5 koko
+      div.desc
+        div
+          h3 500000 שקל
+          h5 koko
+      div.desc
+        div
+          h3 500000 שקל
+          h5 koko
     h2(style='width: 100%; text-align: center;') אופציות נוספות
     .more
       div
@@ -123,28 +142,49 @@ main
           li מכירה
 
 
+          // footer
+
+    .footer
+          .first
+              h1 facebook
+              h1 koko
+              h1 facebook
+              h1 koko
+              h1 facebook
+              h1 koko
+              h1 facebook
+              h1 koko
+          .sec
+              h1 facebook
+              h1 koko
+              h1 facebook
+              h1 koko
+              h1 facebook
+              h1 koko
+              h1 facebook
+              h1 koko
+              h1 facebook
+              h1 koko
+          .social
+              h1 facebook
+              h1 koko
    
 
         
         
-          
-          .modal.fade.bs-example-modal-sm(tabindex='-1', role='dialog', aria-labelledby='mySmallModalLabel')
-            .modal-dialog.modal-sm(role='document')
-              .modal-content
-                
-                div.form-group
-                    label(for='email') מאייל:
-                    input#email.form-control(type='email', placeholder='name@email.com' name='email')
-                div.form-group
-                    label(for='pw') סיסמה:
-                    input#pw.form-control(type='password' name='password')
-                div.form-group
-                    label(for='pw2') אימות סיסמה:
-                    input#pw2.form-control(type='password' name='confirmPassword')
-                button.btn.btn-primary(type='submit') הרשמה
-                .fb-login-button(data-max-rows='1', data-size='large', data-button-type='continue_with', data-show-faces='false', data-auto-logout-link='false', data-use-continue-as='false')
-                <div id="fb-root"></div>
-         
+          // reg form   
+    .modal.fade.bs-example-modal-sm(tabindex='-1', role='dialog', aria-labelledby='mySmallModalLabel')
+        .modal-dialog.modal-sm(role='document')
+          .modal-content
+            form(method='' action='/api/log')
+              div.form-group
+                  label(for='email') מאייל:
+                  input#email.form-control(type='email', placeholder='name@email.com' name='email')
+                  input(type="submit" value="הרשמה")
+
+
+
+
             script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
             script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
             script(src='/javascripts/app.js')
