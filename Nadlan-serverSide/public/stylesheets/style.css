@@ -285,6 +285,7 @@ li a{
     display: flex;
     width: 100%;
     position: relative;
+    flex-wrap: wrap;
 }
 .kokoaa{
     margin: 120px 120px 0 120px;
@@ -308,6 +309,15 @@ li a{
     text-decoration: none;
     color: #8F8F8F;
 }
+/*description in houses*/
+.koko description{
+    font-size:1px;
+}
+
+
+
+
+
 
 /* form */
 
@@ -371,3 +381,4 @@ li a{
     text-decoration: none;
     color: aliceblue;
 }
+
