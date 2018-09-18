@@ -14,26 +14,29 @@ main
             input.form-control(name='title', type='text')
         #form-group
             label סוג:  
-            input.form-control(type="radio" name="gender" value="דירה") 
+            input.form-control(type="radio" name="types" value="דירה") 
             |  דירה
-            input.form-control(type="radio" name="gender" value="בית פרטי") 
+            input.form-control(type="radio" name="types" value="בית פרטי") 
             |  בית פרטי
-            input.form-control(type="radio" name="gender" value="קרקע")
+            input.form-control(type="radio" name="types" value="קרקע")
             |  קרקע
-            input.form-control(type="radio" name="gender" value="משרד")
+            input.form-control(type="radio" name="types" value="משרד")
             |  משרד
         #form-group
             label סוג עסקה:
-            input.form-control(type="radio" name="types" value="מכירה") 
+            input.form-control(type="radio" name="deal" value="מכירה") 
             |  מכירה
-            input.form-control(type="radio" name="types" value="השכרה") 
+            input.form-control(type="radio" name="deal" value="השכרה") 
             |  השכרה
         #form-group
             label חדרים:
-            input.form-control(name='rooms', type='number')
+            input.form-control(name='rooms', type='text')
         #form-group
             label אזור:
-            input.form-control(name='area', type='text')
+            select.form-control(name='area')
+                option(value='מרכז') מרכז
+                option(value='צפון') צפון
+                option(value='דרום') דרום
         #form-group
             label מחיר:
             input.form-control(name='price', type='number')

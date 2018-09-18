@@ -54,7 +54,8 @@ html(dir='rtl')
                             
 
                                 li.list-group-item(style='width: 100%')=JSON.stringify(val.title) 
-                                img(src=val.url , alt='logo')
+                                li.list-group-item=JSON.stringify(val.deal) 
+                                li.list-group-item=JSON.stringify(val.types) 
                                 li.list-group-item=JSON.stringify(val.area) 
                                 if parseFloat(val.rooms) > 0
                                   li.list-group-item=JSON.stringify(val.rooms)

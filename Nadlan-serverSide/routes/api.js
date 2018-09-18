@@ -136,14 +136,14 @@ router.get('/houses/spec/add', function(req,res){
 
 
 //add new house post req
-router.post('/houses/spec/add', function(req,res){
+router.post('/houses/spec/add',urlencodedParser, function(req,res){
   let house = new House();
   house.title = req.body.title;
-  house.title = req.body.title;
-  house.title = req.body.title;
-  house.title = req.body.title;
-  house.title = req.body.title;
-  house.title = req.body.title;
+  house.types = req.body.types;
+  house.area = req.body.area;
+  house.deal = req.body.deal;
+  house.rooms = req.body.rooms;
+  house.price = req.body.price;
   House.addHouse(house, function(err, house){
       if(err){
           throw err;

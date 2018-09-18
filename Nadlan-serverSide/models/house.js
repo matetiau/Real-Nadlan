@@ -16,7 +16,7 @@ var houseSchema = mongoose.Schema({
         default: Date.now
     },
     rooms:{
-        type: Number,
+        type: String,
         require: true
     },
     price:{
