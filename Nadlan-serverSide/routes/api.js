@@ -127,23 +127,33 @@ router.delete('/houses/:_id', function(req,res){
 
 
 // add new house 
-router.post('/houses/add', function(req,res){
-  var house = req.body;
+router.get('/houses/spec/add', function(req,res){
+  
+      
+  res.render('form-addhouse');
+
+});
+
+
+//add new house post req
+router.post('/houses/spec/add', function(req,res){
+  let house = new House();
+  house.title = req.body.title;
+  house.title = req.body.title;
+  house.title = req.body.title;
+  house.title = req.body.title;
+  house.title = req.body.title;
+  house.title = req.body.title;
   House.addHouse(house, function(err, house){
       if(err){
           throw err;
       } 
-      res.json(house);
+      console.log(house);
   });
 });
 
 
-router.get('/houses/spec/add', function(req,res){
-  
-      
-      res.render('form-addhouse');
 
-});
 
 //change house price 
 

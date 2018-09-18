@@ -1,22 +1,26 @@
 html(dir='rtl')
 head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
     link(rel='stylesheet', type='text/css', href='/stylesheets/style-form.css')
+
 main
+    
     h1 תוסיף בית חדש
-    form.forma(method='POST', action='/houses/add' style="text-align:center")
+    form.forma(method='POST', action='/api/houses/spec/add' style="text-align:center")
         #form-group
             label תיאור קצר:
             input.form-control(name='title', type='text')
         #form-group
             label סוג:  
-            input.form-control(type="radio" name="gender" value="male") 
+            input.form-control(type="radio" name="gender" value="דירה") 
             |  דירה
-            input.form-control(type="radio" name="gender" value="female") 
+            input.form-control(type="radio" name="gender" value="בית פרטי") 
             |  בית פרטי
-            input.form-control(type="radio" name="gender" value="other")
+            input.form-control(type="radio" name="gender" value="קרקע")
             |  קרקע
-            input.form-control(type="radio" name="gender" value="other")
+            input.form-control(type="radio" name="gender" value="משרד")
             |  משרד
         #form-group
             label סוג עסקה:
@@ -25,10 +29,17 @@ main
             input.form-control(type="radio" name="types" value="השכרה") 
             |  השכרה
         #form-group
-            label מחיר:
-            input.form-control(name='price', type='text')
+            label חדרים:
+            input.form-control(name='rooms', type='number')
         #form-group
             label אזור:
             input.form-control(name='area', type='text')
-        
+        #form-group
+            label מחיר:
+            input.form-control(name='price', type='number')
+        input.btn.btn-primary(type='submit', value='submit')
+        //#form-group
+            label תוסיף תמונות:
+            input(type='file', name='pic', accept='image/*')
+            input(type='submit')//
         
