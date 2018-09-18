@@ -7,7 +7,7 @@ var houseSchema = mongoose.Schema({
         type: String,
         require: true
     },
-    type:{
+    types:{
         type: String,
         require: true
     },
@@ -34,6 +34,10 @@ var houseSchema = mongoose.Schema({
     title:{
         type:String,
         require: true
+    },
+    deal:{
+        type:String,
+        require: true
     }
 
 });
@@ -45,6 +49,7 @@ var House = module.exports = mongoose.model("House", houseSchema);
 module.exports.getHouses = function(callback, limit){
     House.find(callback).limit(limit);
 }
+
 
 // get house
 module.exports.getHouseById = function(id,callback){
@@ -59,17 +64,13 @@ module.exports.addHouse = function(house, callback){
 }
 
 
-// Update house
+// Update house price
 
 module.exports.updateHouse = function(id, house, options, callback){
     var query = {_id: id};
 
     var update = {
-        title: house.title,
-        types: house.types,
-        rooms: house.rooms,
         price: house.price,
-        area: house.area
     }
 
 
@@ -80,4 +81,3 @@ module.exports.removeHouse = function(id, callback){
     var query = {_id: id};
     House.remove(query, callback);
 }
-

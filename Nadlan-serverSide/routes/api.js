@@ -5,11 +5,10 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 
-let reqPath = path.join(__dirname, '../public/html-files');
 
 
-
-House = require('./models/house');
+//path to house file
+House = require('../models/house');
 
 
 router.use(express.static('public'));
@@ -47,10 +46,37 @@ router.get('/houses', function(req,res){
           throw err;
       } 
       let list = houses;
-      res.json(houses);
+      
       res.render('houses', {list:list});
   });
 });
+
+//get all houses for sale
+
+router.get('/houses/spec/sale', function(req,res){
+  House.getHouses(function(err, houses){
+      if(err){
+          throw err;
+      } 
+      let list = houses.filter(h=> h.deal === "מכירה");
+      res.json(list);
+      
+  });
+});
+
+
+//get all houses for rent
+router.get('/houses/spec/rent', function(req,res){
+  House.getHouses(function(err, houses){
+      if(err){
+          throw err;
+      } 
+      let list = houses.filter(h=> h.deal === "השכרה");
+      res.json(list);
+      
+  });
+});
+
 
 //get specific house 
 
@@ -101,7 +127,7 @@ router.delete('/houses/:_id', function(req,res){
 
 
 // add new house 
-router.post('/houses', function(req,res){
+router.post('/houses/add', function(req,res){
   var house = req.body;
   House.addHouse(house, function(err, house){
       if(err){
@@ -111,6 +137,13 @@ router.post('/houses', function(req,res){
   });
 });
 
+
+router.get('/houses/spec/add', function(req,res){
+  
+      
+      res.render('form-addhouse');
+
+});
 
 //change house price 
 
