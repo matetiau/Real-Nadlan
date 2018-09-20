@@ -38,6 +38,10 @@ var houseSchema = mongoose.Schema({
     deal:{
         type:String,
         require: true
+    },
+    houseImage:{
+        type:String,
+        require: true
     }
 
 });
