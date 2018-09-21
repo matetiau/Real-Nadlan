@@ -73,8 +73,8 @@ router.get('/houses', function(req,res){
           throw err;
       } 
       let list = houses;
-      
-      res.render('houses', {list:list});
+      res.json(list);
+      /res.render('houses', {list:list});/
   });
 });
 
@@ -172,6 +172,7 @@ router.post('/houses/spec/add', upload.single('houseImage'),urlencodedParser, fu
   house.rooms = req.body.rooms;
   house.price = req.body.price;
   
+  //making link to the image for house
   let str = req.file.path;
   let finalForm = str.replace("uploads\\", "http://localhost:3000/");
   house.houseImage = finalForm;
