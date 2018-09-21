@@ -21,4 +21,12 @@ const UserSchema = mongoose.Schema({
     }
 });
 
+
+
+//adding new account
+module.exports.addUser = function(user, callback){
+   User.create(user, callback);
+}
+
+
 const User = module.exports = mongoose.model('User', UserSchema);
