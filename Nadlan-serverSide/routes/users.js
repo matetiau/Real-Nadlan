@@ -1,11 +1,18 @@
 var express = require('express');
 var router = express.Router();
 const mongoose = require('mongoose');
-
+const bcrypt = require('bcryptjs');
+var flash = require('express-flash-messages');
 mongoose.connect('mongodb://localhost/housestore');
 
 // Bring user route
-User = require('../models/user');
+let User = require('../models/user');
+
+
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+
 
 
 // Register form
@@ -17,48 +24,59 @@ router.get('/register', (req, res) => {
 
   
   router.post('/register',urlencodedParser, (req, res) => {
+  
+    const  name = req.body.name;
+    const  email = req.body.email;
+    const password = req.body.password;
+    const  password2 = req.body.password2;
+    const  username = req.body.username;
     
-    const account = {
-      id: accounts.length +1,
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
-      username: req.body.username
-    }
-
+  
     req.checkBody('name', 'Name is required').notEmpty();
     req.checkBody('email', 'Email is required').notEmpty();
+    req.checkBody('email', 'Email is required').isEmail();
     req.checkBody('password', 'Password is required').notEmpty();
-    req.checkBody('username', 'username is required').notEmpty();
+    req.checkBody('username', 'Username is required').notEmpty();
+    req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
+
+
+      let newUser = new User({
+        name:name,
+        email:email,
+        username:username,
+        password:password
+      });
+    
+      bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.hash(newUser.password, salt, (err, hash) => {
+            newUser.password = hash;
+
+            User.addUser(newUser, function(err, newUser){
+              if(err){
+                  throw err;
+              } else { 
+                req.flash('success', 'יש לך חשבון אתה יכול להתחבר')
+                res.redirect('/users/login');
+              }});
+        });
+    });
+  
+
+     
+        
+    
     
    
   
-  });
+      });
   
   
   
   // login
-  router.get('/login',urlencodedParser, (req, res) => {
+  router.get('/login', (req, res) => {
     res.render('login');
     
   });
   
-  
-  
-  router.post('/login',urlencodedParser, (req, res) => {
-  const acca = {
-    email: req.body.email,
-    password: req.body.password};
-    
-  
-    if (accounts.find(acc =>acc.email === req.body.email && acc.password === req.body.password  )){
-      res.send({type:"Logged in "});
-      console.log('you are logged in');
-      let log = true;}
-      else {
-        res.send({type:"incorrect"});
-        console.log('there is no account like this or password is incorect');
-        let log = false;}
-      });
   
 module.exports = router;
