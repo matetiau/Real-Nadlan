@@ -81,6 +81,8 @@ module.exports.updateHouse = function(id, house, options, callback){
     House.findOneAndUpdate(query, update, options, callback);
 }
 
+//remove house from db
+
 module.exports.removeHouse = function(id, callback){
     var query = {_id: id};
     House.remove(query, callback);

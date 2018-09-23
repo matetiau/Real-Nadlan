@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 var flash = require('express-flash-messages');
 mongoose.connect('mongodb://localhost/housestore');
-
+const passport = require('passport');
 // Bring user route
 let User = require('../models/user');
 
@@ -50,12 +50,14 @@ router.get('/register', (req, res) => {
       bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
             newUser.password = hash;
-
+            if(err){
+              throw err;
+            } 
             User.addUser(newUser, function(err, newUser){
               if(err){
                   throw err;
               } else { 
-                req.flash('success', 'יש לך חשבון אתה יכול להתחבר')
+                
                 res.redirect('/users/login');
               }});
         });
@@ -77,6 +79,29 @@ router.get('/register', (req, res) => {
     res.render('login');
     
   });
+
+  // login post
+  router.post('/login', (req, res,next) => {
+    passport.authenticate('local', {
+      successRedirect:'/',
+      failureRedirect:'/user/login',
+      failureFlash: true
+    })(req,res,next);
+    
+  });
+
   
+
+  //remove user from db
+
+  router.delete('/:_id', function(req,res){
+    let id = req.params._id;
+    User.removeUser(id,function(err, user){
+        if(err){
+            throw err;
+        } 
+        res.json(user);
+    });
+  });
   
 module.exports = router;

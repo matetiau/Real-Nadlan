@@ -4,8 +4,20 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var expressValidator = require('express-validator');
-var flash = require('express-flash-messages');
+var flash = require('connect-flash');
+const config = require('./config/database');
+const mongoose = require('mongoose');
+const passport = require('passport');
 var session = require('express-session');
+mongoose.connect('config.databse');
+var db = mongoose.connection;
+app.use(express.session({
+  key: "mysite.sid.uid.whatever",
+  secret: process.env["yoursecret"],
+  cookie: {
+    maxAge: 2678400000 // 31 days
+  },
+}));
 
 
 var indexRouter = require('./routes/index');
@@ -36,6 +48,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('public'));
 
 app.use(express.static('uploads'));
+
+// Passport Config
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+require('./config/passport')(passport);
+
 
 
 

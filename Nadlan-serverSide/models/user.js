@@ -29,3 +29,8 @@ module.exports.addUser = function(newUser, callback){
 }
 
 
+//remove user from database
+module.exports.removeUser = function(id, callback){
+    var query = {_id: id};
+    User.remove(query, callback);
+}
