@@ -11,13 +11,10 @@ const passport = require('passport');
 var session = require('express-session');
 mongoose.connect('config.databse');
 var db = mongoose.connection;
-app.use(express.session({
-  key: "mysite.sid.uid.whatever",
-  secret: process.env["yoursecret"],
-  cookie: {
-    maxAge: 2678400000 // 31 days
-  },
-}));
+var MemoryStore = session.MemoryStore;
+var app = express();
+
+
 
 
 var indexRouter = require('./routes/index');
@@ -25,7 +22,7 @@ var usersRouter = require('./routes/users');
 var apiRouter = require('./routes/api');
 
 
-var app = express();
+
 
 
 
@@ -56,7 +53,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 require('./config/passport')(passport);
 
-
+app.use(express.session({
+  key: "mysite.sid.uid.whatever",
+  secret: "1234567890QWERTY",
+  cookie: {
+    maxAge: 2678400000 // 31 days
+  },
+}));
 
 
 app.use('/', indexRouter);
