@@ -56,7 +56,12 @@ var House = module.exports = mongoose.model("House", houseSchema);
 // get houses
 
 module.exports.getHouses = function(callback, limit){
-    House.find(callback).limit(limit);
+    House.find( callback).limit(limit);
+}
+
+
+module.exports.getHousesSpec = function(_deal,_types,callback, limit){
+    House.find({deal:_deal,types:_types}, callback).limit(limit);
 }
 
 
@@ -64,6 +69,9 @@ module.exports.getHouses = function(callback, limit){
 module.exports.getHouseById = function(id,callback){
     House.findById(id,callback);
 }
+
+// get specfic group of houses
+
 
 // add house
 

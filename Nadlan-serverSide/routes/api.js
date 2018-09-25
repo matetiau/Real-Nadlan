@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (req, file, cb) =>{
-  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png' || file.mimetype === 'image/jpg' )
+  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png')
   {
   cb(null, true);
   } else {
@@ -28,7 +28,7 @@ const fileFilter = (req, file, cb) =>{
 const upload = multer({
   storage:storage, 
   limits:{
-  fileSize: 1024 *1024 *5
+  fileSize: 1024 *1024 *2
 },
 fileFilter : fileFilter
 });
@@ -67,20 +67,21 @@ router.get('/houses', function(req,res){
 
 //get all houses for sale
 
-router.get('/houses/spec/sale', function(req,res){
-  House.getHouses(function(err, houses){
+router.get('/houses/spec/:_types/:_deal', function(req,res){
+  House.getHousesSpec(req.params._deal, req.params._types, function(err, houses){
       if(err){
           throw err;
       } 
-      let list = houses.filter(h=> h.deal === "מכירה");
-      res.json(list);
+      let list = houses.filter(h=> h.deal === req.params._deal);
+      let list2 = list.filter(h=> h.types === req.params._types);
+      res.json(list2);
       
   });
 });
 
 
 //get all houses for rent
-router.get('/houses/spec/rent', function(req,res){
+router.get('/houses/spec/:_rent', function(req,res){
   House.getHouses(function(err, houses){
       if(err){
           throw err;
@@ -158,7 +159,7 @@ router.post('/houses/spec/add', upload.single('houseImage'),urlencodedParser, fu
   house.deal = req.body.deal;
   house.rooms = req.body.rooms;
   house.price = req.body.price;
-  house.premiumHouse = req.body.premiumHouse;
+  
   //making link to the image for house
   let str = req.file.path;
   let finalForm = str.replace("uploads\\", "http://localhost:3000/");
@@ -178,7 +179,7 @@ router.post('/houses/spec/add', upload.single('houseImage'),urlencodedParser, fu
 
 //change house price 
 
-/*router.put('/houses/:_id', function(req,res){
+router.put('/houses/:_id', function(req,res){
   var id = req.params._id;
   var house = req.body;
   House.updateHouse(id,house,{}, function(err, house){
@@ -187,7 +188,7 @@ router.post('/houses/spec/add', upload.single('houseImage'),urlencodedParser, fu
       } 
       res.json(house);
   });
-});*/
+});
 
 //change house to premium house
 
