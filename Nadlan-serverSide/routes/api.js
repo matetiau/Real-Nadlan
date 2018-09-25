@@ -158,7 +158,7 @@ router.post('/houses/spec/add', upload.single('houseImage'),urlencodedParser, fu
   house.deal = req.body.deal;
   house.rooms = req.body.rooms;
   house.price = req.body.price;
-  
+  house.premiumHouse = req.body.premiumHouse;
   //making link to the image for house
   let str = req.file.path;
   let finalForm = str.replace("uploads\\", "http://localhost:3000/");
@@ -178,7 +178,7 @@ router.post('/houses/spec/add', upload.single('houseImage'),urlencodedParser, fu
 
 //change house price 
 
-router.put('/houses/:_id', function(req,res){
+/*router.put('/houses/:_id', function(req,res){
   var id = req.params._id;
   var house = req.body;
   House.updateHouse(id,house,{}, function(err, house){
@@ -187,7 +187,20 @@ router.put('/houses/:_id', function(req,res){
       } 
       res.json(house);
   });
-});
+});*/
+
+//change house to premium house
+
+router.put('/houses/:_id', function(req,res){
+    var id = req.params._id;
+    var house = req.body;
+    House.updateHousePremium(id,house,{}, function(err, house){
+        if(err){
+            throw err;
+        } 
+        res.json(house);
+    });
+  });
 
 
 

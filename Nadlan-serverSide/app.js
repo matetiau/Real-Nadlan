@@ -8,12 +8,9 @@ var flash = require('connect-flash');
 const config = require('./config/database');
 const mongoose = require('mongoose');
 const passport = require('passport');
-var session = require('express-session');
+
 mongoose.connect('config.databse');
 var db = mongoose.connection;
-var MemoryStore = session.MemoryStore;
-var app = express();
-
 
 
 
@@ -22,7 +19,7 @@ var usersRouter = require('./routes/users');
 var apiRouter = require('./routes/api');
 
 
-
+var app = express();
 
 
 
@@ -40,7 +37,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(expressValidator());
 app.use(flash());
-app.use(session());
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('public'));
 
@@ -49,17 +46,9 @@ app.use(express.static('uploads'));
 // Passport Config
 
 // Passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
-require('./config/passport')(passport);
 
-app.use(express.session({
-  key: "mysite.sid.uid.whatever",
-  secret: "1234567890QWERTY",
-  cookie: {
-    maxAge: 2678400000 // 31 days
-  },
-}));
+
+
 
 
 app.use('/', indexRouter);

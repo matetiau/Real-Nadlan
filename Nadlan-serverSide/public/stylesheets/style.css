@@ -217,7 +217,7 @@ li a{
 .new > div{
     width: 33.3%;
     background-size: cover;
-    background-image: url(christian-koch-79679-unsplash.jpg);
+    z-index: -1;
     background-repeat: no-repeat;
     height: 250px;
     transition: transform .2s;

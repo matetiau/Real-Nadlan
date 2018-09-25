@@ -100,30 +100,15 @@ main
           a.btn.btn-default.search-btn(href='#', role='button') חפש
     h2(style='width: 100%; text-align: center;') פרסומים מקודמים היום
     .new
-      div.desc 
-        div
-          h3 500000 שקל
-          h5 koko
-      div.desc
-        div
-          h3 500000 שקל
-          h5 koko
-      div.desc
-        div
-          h3 500000 שקל
-          h5 koko
-      div.desc
-        div
-          h3 500000 שקל
-          h5 koko
-      div.desc
-        div
-          h3 500000 שקל
-          h5 koko
-      div.desc
-        div
-          h3 500000 שקל
-          h5 koko
+      - var values = list;
+        each val in values
+                
+                .desc(style='background-image:url('+JSON.stringify(val.houseImage)+')') 
+                    a.house-link(href='/api/houses/' + val.id ) 
+                            ul.list-group.koko
+                                li=JSON.stringify(val.title) 
+                                li=JSON.stringify(val.price)
+                                
     h2(style='width: 100%; text-align: center;') אופציות נוספות
     .more
       div

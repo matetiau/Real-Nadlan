@@ -42,7 +42,12 @@ var houseSchema = mongoose.Schema({
     houseImage:{
         type:String,
         require: true
+    },
+    premiumHouse:{
+        type:String,
+        require:true
     }
+
 
 });
 
@@ -86,4 +91,17 @@ module.exports.updateHouse = function(id, house, options, callback){
 module.exports.removeHouse = function(id, callback){
     var query = {_id: id};
     House.remove(query, callback);
+}
+
+//update house to premium house
+
+module.exports.updateHousePremium = function(id, house, options, callback){
+    var query = {_id: id};
+
+    var update = {
+        premiumHouse: house.premiumHouse,
+    }
+
+
+    House.findOneAndUpdate(query, update, options, callback);
 }
