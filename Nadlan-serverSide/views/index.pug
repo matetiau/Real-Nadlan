@@ -105,9 +105,9 @@ main
                 
                 .desc(style='background-image:url('+JSON.stringify(val.houseImage)+')') 
                     a.house-link(href='/api/houses/' + val.id ) 
-                            ul.list-group.koko
+                            ul.list-group(style='color:aliceblue; list-style: none;')
                                 li=JSON.stringify(val.title) 
-                                li=JSON.stringify(val.price)
+                                li=JSON.stringify(val.price) 
                                 
     h2(style='width: 100%; text-align: center;') אופציות נוספות
     .more
