@@ -8,7 +8,7 @@ head
 main
     
     h1 תוסיף בית חדש
-    form.forma(method='POST', action='/api/houses/spec/add' style="text-align:center")
+    form.forma(method='POST', action='/api/houses/specta/add' enctype='multipart/form-data' style="text-align:center")
         #form-group
             label תיאור קצר:
             input.form-control(name='title', type='text')
@@ -38,11 +38,17 @@ main
                 option(value='צפון') צפון
                 option(value='דרום') דרום
         #form-group
-            label מחיר:
-            input.form-control(name='price', type='number')
-        input.btn.btn-primary(type='submit', value='submit')
-        //#form-group
-            label תוסיף תמונות:
-            input(type='file', name='pic', accept='image/*')
-            input(type='submit')//
+            input.form-control(name='houseImage', type='file')
+            input.form-control(name='houseImage1', type='file')
+            input.form-control(name='houseImage', type='file')
+            input.form-control(name='houseImage1', type='file')
+            input.form-control(name='houseImage', type='file')
+            input.form-control(name='houseImage1', type='file')
+            input.form-control(name='houseImage', type='file')
+            input.form-control(name='houseImage1', type='file')
+            
+        input(type='submit', name='submit')
+            
+        
+       
         

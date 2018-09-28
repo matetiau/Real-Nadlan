@@ -1,9 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-var flash = require('express-flash-messages');
-mongoose.connect('mongodb://localhost/housestore');
 const passport = require('passport');
 // Bring user route
 let User = require('../models/user');
@@ -57,7 +54,7 @@ router.get('/register', (req, res) => {
               if(err){
                   throw err;
               } else { 
-                
+                req.flash('seccess', 'You are now registred log in')
                 res.redirect('/users/login');
               }});
         });
@@ -84,7 +81,7 @@ router.get('/register', (req, res) => {
   router.post('/login', (req, res,next) => {
     passport.authenticate('local', {
       successRedirect:'/',
-      failureRedirect:'/user/login',
+      failureRedirect:'/users/login',
       failureFlash: true
     })(req,res,next);
     

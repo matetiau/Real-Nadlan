@@ -5,14 +5,15 @@ const multer = require('multer');
 
 
 
-
+let imageName = "";
 //how files are stored
 const storage = multer.diskStorage({
   destination: function(req,file,cb) {
     cb(null, './uploads/');
   },
   filename: function(req, file,cb){
-    cb(null, new Date().toISOString().replace(/:/g, '-') + file.originalname);
+    cb(null,imageName = new Date().toISOString().replace(/:/g, '-') + file.originalname);
+    
   }
 });
 
@@ -106,7 +107,7 @@ router.get('/houses/:_id', function(req,res){
       const rooms = house.rooms;
       const area = house.area;
       const price = house.price;
-      const houseImage = house.houseImage;
+      const houseImages = house.houseImages;
 
       res.render('list', 
               {
@@ -115,7 +116,7 @@ router.get('/houses/:_id', function(req,res){
               rooms:rooms ,
               area:area ,
               price : price + "שקל",
-              houseImage: houseImage
+              houseImages: houseImages
         
           
           });
@@ -142,7 +143,7 @@ router.delete('/houses/:_id', function(req,res){
 
 
 // add new house view
-router.get('/houses/spec/add', function(req,res){
+router.get('/houses/specta/add', function(req,res){
   
       
   res.render('form-addhouse');
@@ -151,7 +152,7 @@ router.get('/houses/spec/add', function(req,res){
 
 
 //add new house post req
-router.post('/houses/spec/add', upload.single('houseImage'),urlencodedParser, function(req,res){
+router.post('/houses/specta/add', upload.any(),urlencodedParser, function(req,res){
   let house = new House();
   house.title = req.body.title;
   house.types = req.body.types;
@@ -161,15 +162,16 @@ router.post('/houses/spec/add', upload.single('houseImage'),urlencodedParser, fu
   house.price = req.body.price;
   
   //making link to the image for house
-  let str = req.file.path;
-  let finalForm = str.replace("uploads\\", "http://localhost:3000/");
-  house.houseImage = finalForm;
+  house.houseImages = (req.files.map(house => house.path.replace("uploads\\","http://localhost:3000/")));
+ 
+  
+ 
   
   House.addHouse(house, function(err, house){
       if(err){
           throw err;
       }
-      console.log(req.body.price);
+      console.log(house.houseImages);
       res.redirect('/api/houses/'+house.id);
   });
 });

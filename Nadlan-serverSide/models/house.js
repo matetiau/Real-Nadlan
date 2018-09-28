@@ -39,8 +39,8 @@ var houseSchema = mongoose.Schema({
         type:String,
         require: true
     },
-    houseImage:{
-        type:String,
+    houseImages:{
+        type:Array,
         require: true
     },
     premiumHouse:{

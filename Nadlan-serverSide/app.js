@@ -4,12 +4,15 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var expressValidator = require('express-validator');
+var session = require('express-session');
 var flash = require('connect-flash');
 const config = require('./config/database');
 const mongoose = require('mongoose');
 const passport = require('passport');
+var bodyParser = require('body-parser');
+var app = express();
 
-mongoose.connect('config.databse');
+mongoose.connect('mongodb://localhost:27017/housestore', { useNewUrlParser: true });
 var db = mongoose.connection;
 
 
@@ -19,7 +22,7 @@ var usersRouter = require('./routes/users');
 var apiRouter = require('./routes/api');
 
 
-var app = express();
+
 
 
 
@@ -30,7 +33,22 @@ app.set('view engine', 'pug');
 // view engine setup
 
 
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+      var namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root;
 
+    while(namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param : formParam,
+      msg   : msg,
+      value : value
+    };
+  }
+}));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -44,10 +62,30 @@ app.use(express.static('public'));
 app.use(express.static('uploads'));
 
 // Passport Config
-
+require('./config/passport')(passport);
 // Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get('*', function(req,res,next){
+  res.locals.user = req.user || null;
+  next();
+})
 
 
+
+app.use(session({
+  secret: 'yousecret',
+  resave: true,
+  saveUninitialized: true
+}));
+
+// Express Messages Middleware
+app.use(require('connect-flash')());
+app.use(function (req, res, next) {
+  res.locals.messages = require('express-messages')(req, res);
+  next();
+});
 
 
 
