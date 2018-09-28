@@ -40,7 +40,8 @@ html(dir='rtl')
                   i.fas.fa-user-alt
               li
                 a(href='api/houses/addNew')
-                  button.btn.btn-default(type='button', style='background-color: #0FB654') פרסום מודעה
+                button.btn.btn-default(type='button', style='background-color: #0FB654') פרסום מודעה
+      
       // - carousel
       .container-fluid.row.main(style='position:relative;')
         #carou.col-md-8.carou
@@ -54,14 +55,15 @@ html(dir='rtl')
     
             // - wrapper slides
             .carousel-inner(role='listbox')
-          
+            
               .item.active
-                img(src= houseImage, alt='front', style='height: 75vh; width: 100%;')
+                img(src= houseImages[0], alt='front', style='height: 75vh; width: 100%;')
                 .carousel-caption
-              
-              .item
-                img(src =  houseImage , alt='back', style='height: 75vh; width: 100%;')
-                .carousel-caption
+              - var values = houseImages.slice(1,houseImages.length);
+              each val in values
+                .item
+                  img(src = val , alt='back', style='height: 75vh; width: 100%;')
+                  .carousel-caption
                   
             // - controls
             a.left.carousel-control(href='#catalog-slider', role='button', data-slide='next')
