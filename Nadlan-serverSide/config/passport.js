@@ -20,7 +20,7 @@ module.exports = function(passport){
                 bcrypt.compare(password, user.password, function(err,isMatch){
                     if(err) throw err;
                     if(isMatch){
-                        
+                        console.log(user);
                         return done(null,user);
                     } else {
                         

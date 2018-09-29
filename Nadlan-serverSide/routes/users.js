@@ -62,7 +62,7 @@ router.get('/register', (req, res) => {
               if(err){
                   throw err;
               } else { 
-                req.flash('seccess', 'You are now registred log in')
+                req.flash('success', 'You are now registred log in')
                 res.redirect('/users/login');
               }});
         });

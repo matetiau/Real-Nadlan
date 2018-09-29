@@ -164,7 +164,7 @@ router.post('/houses/specta/add', upload.any(),urlencodedParser, function(req,re
   house.deal = req.body.deal;
   house.rooms = req.body.rooms;
   house.price = req.body.price;
-  
+  house.user = req.user._id;
   //making link to the image for house
   house.houseImages = (req.files.map(house => house.path.replace("uploads\\","http://localhost:3000/")));
 
@@ -173,7 +173,7 @@ router.post('/houses/specta/add', upload.any(),urlencodedParser, function(req,re
     req.checkBody('deal', 'חסר איזה סוג עסקה').notEmpty();
     req.checkBody('area', 'חסר באיזה אזור הנכס').notEmpty();
     req.checkBody('price', 'חסר מחיר של נכס').notEmpty();
-
+    
     let errors = req.validationErrors();
  
   
