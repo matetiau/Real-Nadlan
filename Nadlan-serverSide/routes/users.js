@@ -20,11 +20,11 @@ router.get('/register', (req, res) => {
   });
 
   
-  router.post('/register',urlencodedParser, (req, res) => {
+  router.post('/register',urlencodedParser, (req, res,next) => {
   
     const  name = req.body.name;
     const  email = req.body.email;
-    const password = req.body.password;
+    const  password = req.body.password;
     const  password2 = req.body.password2;
     const  username = req.body.username;
     
@@ -36,21 +36,29 @@ router.get('/register', (req, res) => {
     req.checkBody('username', 'Username is required').notEmpty();
     req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
 
+    let errors = req.validationErrors();
+    
 
+    if(errors){
+      res.render('reg', {
+        errors:errors
+        
+      });console.log(errors);
+    } else {
       let newUser = new User({
         name:name,
         email:email,
         username:username,
         password:password
       });
-    
       bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
             newUser.password = hash;
             if(err){
               throw err;
-            } 
-            User.addUser(newUser, function(err, newUser){
+            }
+            newUser.password = hash; 
+            newUser.save(function(err, newUser){
               if(err){
                   throw err;
               } else { 
@@ -59,6 +67,10 @@ router.get('/register', (req, res) => {
               }});
         });
     });
+    }
+  });
+    
+      
   
 
      
@@ -66,8 +78,7 @@ router.get('/register', (req, res) => {
     
     
    
-  
-      });
+ 
   
   
   
@@ -78,13 +89,12 @@ router.get('/register', (req, res) => {
   });
 
   // login post
-  router.post('/login', (req, res,next) => {
+  router.post('/login', function(req, res,next) {
     passport.authenticate('local', {
       successRedirect:'/',
       failureRedirect:'/users/login',
       failureFlash: true
     })(req,res,next);
-    
   });
 
   

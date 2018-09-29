@@ -42,13 +42,18 @@ main
                 a(href='api/houses/addNew')
                   button.btn.btn-default(type='button', style='background-color: #0FB654') פרסום מודעה
 
+    
 
-
-
+    
+       
     .row(style="margin-top:150px;")
       .col-md-6.col-md-offset-3
         h1.display-4.m-b-2 הרשמה
-
+    .errors
+      if errors
+      - var values = errors;
+        each val in values
+          h2=val.msg
         // register form
         form(method='POST' action='/users/register' style="margin-top=150px;")
           div.form-group
@@ -63,6 +68,9 @@ main
           div.form-group
             label(for='pw') סיסמה:
             input#pw.form-control(type='password' name='password')
+          div.form-group
+            label(for='pw') אימות סיסמה:
+            input#pw.form-control(type='password' name='password2')
           input( type="submit" value="הרשמה")
 
     h1 אם יש לך חשבון כנם
