@@ -100,7 +100,7 @@ router.get('/houses/:_id', function(req,res){
   House.getHouseById(req.params._id, function(err, house){
       if(err){
           throw err;
-      } 
+      }  
       
       const title = house.title;
       const types = house.types;
@@ -108,6 +108,10 @@ router.get('/houses/:_id', function(req,res){
       const area = house.area;
       const price = house.price;
       const houseImages = house.houseImages;
+
+    
+
+    
 
       res.render('list', 
               {
@@ -163,16 +167,25 @@ router.post('/houses/specta/add', upload.any(),urlencodedParser, function(req,re
   
   //making link to the image for house
   house.houseImages = (req.files.map(house => house.path.replace("uploads\\","http://localhost:3000/")));
- 
-  
+
+    req.checkBody('title', 'חייב תיאור קצר').notEmpty();
+    req.checkBody('types', 'חסר סוג נכס').notEmpty();
+    req.checkBody('deal', 'חסר איזה סוג עסקה').notEmpty();
+    req.checkBody('area', 'חסר באיזה אזור הנכס').notEmpty();
+    req.checkBody('price', 'חסר מחיר של נכס').notEmpty();
+
+    let errors = req.validationErrors();
  
   
   House.addHouse(house, function(err, house){
-      if(err){
-          throw err;
-      }
+    if(errors){
+        res.render('form-addhouse', {
+          errors:errors
+          
+        });
+      } else {
       console.log(house.houseImages);
-      res.redirect('/api/houses/'+house.id);
+      res.redirect('/api/houses/'+house.id);}
   });
 });
 

@@ -10,20 +10,20 @@ module.exports = function(passport){
             let query = {username:username};
             console.log(query);
             User.findOne(query, function(err, user){
-                if(err) console.log(err);
+                if(err) throw err;
                 
                 if(!user){
-                    console.log(!user);
+                    
                     return done(null,false,{message: 'No user found'})
                 }
                 // Match password
                 bcrypt.compare(password, user.password, function(err,isMatch){
                     if(err) throw err;
                     if(isMatch){
-                        console.log(user);
+                        
                         return done(null,user);
                     } else {
-                        console.log(password,user.password);
+                        
                         return done(null,false, {message : 'Wrong password'});
                     }
                 });

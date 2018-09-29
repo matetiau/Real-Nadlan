@@ -8,6 +8,12 @@ head
 main
     
     h1 תוסיף בית חדש
+
+    .errors
+      if errors
+        - var values = errors;
+          each val in values
+            h2=val.msg
     form.forma(method='POST', action='/api/houses/specta/add' enctype='multipart/form-data' style="text-align:center")
         #form-group
             label תיאור קצר:
@@ -46,8 +52,14 @@ main
             input.form-control(name='houseImage', type='file')
             input.form-control(name='houseImage', type='file')
             input.form-control(name='houseImage', type='file')
-            
-        input(type='submit', name='submit')
+        #form-group
+            label מחיר:
+            input.form-control(name='price', type='text')
+        #form-group
+            label אם אתה רוצה לפרסם מודע בעמוד ראשון?:
+            input.form-control(type="radio" name="premiumHouse" value="premium") 
+            |  כן
+        input.form-control(type='submit', name='submit')
             
         
        
