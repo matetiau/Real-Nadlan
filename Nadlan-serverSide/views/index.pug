@@ -41,11 +41,13 @@ main
                 
                   button.btn.btn-default( type='button', data-toggle='modal', data-target='.bs-example-modal-sm')
                     a.heshbon(href='users/register')
-                      if log
-                         logged as koko
-                      
-                      | כניסה לחשבון/הרשמה
-                      i.fas.fa-user-alt
+                      if user
+                         p #{user.name}
+                         
+                         a(href='/logout') יציאה ממערכת
+                      else
+                         | כניסה לחשבון/הרשמה
+                         
               li
                 a(href='api/houses/specta/add')
                   button.btn.btn-default(type='button', style='background-color: #0FB654') פרסום מודעה

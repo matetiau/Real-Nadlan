@@ -7,6 +7,11 @@ router.use(express.json());
 router.use('/api', require('./api'));
 House = require('../models/house');
 
+router.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
+  });
+
 
 router.get('/', function(req,res){
   House.getHouses(function(err, houses){
@@ -16,7 +21,7 @@ router.get('/', function(req,res){
       
       
       let list = houses.filter(h=> h.premiumHouse === "premium");
-      res.render('index', {list:list});
+      res.render('index', {list:list,user:req.user});
   });
 });
 

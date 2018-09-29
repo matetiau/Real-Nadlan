@@ -44,16 +44,16 @@ main
 
     
 
-    
+    .errors
+      if errors
+        - var values = errors;
+          each val in values
+            h2=val.msg
        
     .row(style="margin-top:150px;")
       .col-md-6.col-md-offset-3
         h1.display-4.m-b-2 הרשמה
-    .errors
-      if errors
-      - var values = errors;
-        each val in values
-          h2=val.msg
+    
         // register form
         form(method='POST' action='/users/register' style="margin-top=150px;")
           div.form-group

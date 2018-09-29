@@ -7,7 +7,7 @@ let User = require('../models/user');
 
 
 var bodyParser = require('body-parser');
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
+var urlencodedParser = bodyParser.urlencoded({ extended: true });
 
 
 
@@ -98,17 +98,10 @@ router.get('/register', (req, res) => {
   });
 
   
+  //log out
 
+  
   //remove user from db
 
-  router.delete('/:_id', function(req,res){
-    let id = req.params._id;
-    User.removeUser(id,function(err, user){
-        if(err){
-            throw err;
-        } 
-        res.json(user);
-    });
-  });
   
 module.exports = router;

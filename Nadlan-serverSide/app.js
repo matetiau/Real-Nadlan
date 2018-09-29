@@ -1,20 +1,21 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var expressValidator = require('express-validator');
-var session = require('express-session');
-var flash = require('connect-flash');
-const config = require('./config/database');
+const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const expressValidator = require('express-validator');
+const flash = require('connect-flash');
+const session = require('express-session');
 const passport = require('passport');
-var bodyParser = require('body-parser');
-var app = express();
+const config = require('./config/database');
+
+
+
+
 var db = mongoose.connection;
 
 mongoose.connect(config.database, { useNewUrlParser: true});
 
+const app = express();
 
 
 
@@ -35,16 +36,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-
-
-
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
-
-
-// view engine setup
-
-
+// Express Validator Middleware
 app.use(expressValidator({
   errorFormatter: function(param, msg, value) {
       var namespace = param.split('.')
@@ -62,6 +54,18 @@ app.use(expressValidator({
   }
 }));
 
+
+
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+
+
+// view engine setup
+
+
+
+
 require('./config/passport')(passport);
 // Passport middleware
 app.use(passport.initialize());
@@ -74,10 +78,10 @@ app.get('*', function(req,res,next){
 
 
 
-app.use(logger('dev'));
+
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(express.urlencoded({ extended: true }));
+
 app.use(expressValidator());
 app.use(flash());
 

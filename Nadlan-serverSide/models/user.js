@@ -23,10 +23,8 @@ const UserSchema = mongoose.Schema({
 
 
 const User = module.exports = mongoose.model('User', UserSchema);
-//adding new account
-/*module.exports.addUser = function(newUser, callback){
-   User.create(newUser, callback);
-}*/
+
+
 
 
 //remove user from database
