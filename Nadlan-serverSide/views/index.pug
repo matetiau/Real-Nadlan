@@ -49,8 +49,12 @@ main
                          | כניסה לחשבון/הרשמה
                          
               li
-                a(href='api/houses/specta/add')
-                  button.btn.btn-default(type='button', style='background-color: #0FB654') פרסום מודעה
+                button.btn.btn-default(type='button', style='background-color: #0FB654') 
+                  if user
+                    a(href='api/houses/specta/add') פרסום מודעה
+                  else
+                    a(href='users/register') פרסום מודעה
+                    
       // - carousel -
       #catalog-slider.carousel.slide(data-ride='carousel')
         // - indicators dot nov -

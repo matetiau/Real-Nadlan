@@ -44,13 +44,14 @@ main
                 a(href='api/houses/addNew')
                   button.btn.btn-default(type='button', style='background-color: #0FB654') פרסום מודעה
 
-
-
+    
+    
 
     .row(style="margin-top:150px;")
       .col-md-6.col-md-offset-3
         h1.display-4.m-b-2 כניסה לחשבון
-
+        != messages()
+            
         // login form
         form(method='POST' action='/users/login' style="margin-top=150px;")
             div.form
