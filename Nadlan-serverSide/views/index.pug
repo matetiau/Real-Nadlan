@@ -23,7 +23,7 @@ main
               span.icon-bar
               span.icon-bar
             a.navbar-brand(href='/')
-              img(alt='Brand', src='images/logo.jpg', style='height: 50px;')
+              img(alt='Brand', src='/images/logo.jpg', style='height: 50px;')
               div
           #myNavbar.collapse.navbar-collapse
             ul.nav.navbar-nav.nav-tabs(role='tablist')
@@ -34,9 +34,9 @@ main
                     span.caret
                   ul.dropdown-menu(aria-labelledby='dropdownMenu1')
                     li
-                      a(href='api/houses/spec/rent') השכרה
+                      a(href='/api/houses/spec/rent') השכרה
                     li
-                      a(href='api/houses/spec/sale') מכירה
+                      a(href='/api/houses/spec/sale') מכירה
               li
                 
                   button.btn.btn-default( type='button', data-toggle='modal', data-target='.bs-example-modal-sm')
@@ -51,9 +51,9 @@ main
               li
                 button.btn.btn-default(type='button', style='background-color: #0FB654') 
                   if user
-                    a(href='api/houses/specta/add') פרסום מודעה
+                    a(href='/api/houses/specta/add') פרסום מודעה
                   else
-                    a(href='users/register') פרסום מודעה
+                    a(href='/users/register') פרסום מודעה
                     
       // - carousel -
       #catalog-slider.carousel.slide(data-ride='carousel')
@@ -134,7 +134,7 @@ main
           li
             a(href='/api/houses/spec/בית פרטי/מכירה') מכירה
       div
-        i.flaticon-flat
+        img(src="https://png.icons8.com/ios/64/000000/apartment.png")
         | דירה
         ul
           li

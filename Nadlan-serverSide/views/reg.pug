@@ -30,17 +30,26 @@ main
                     span.caret
                   ul.dropdown-menu(aria-labelledby='dropdownMenu1')
                     li
-                      a(href='http://localhost:3000/api/houses/%D7%94%D7%A9%D7%9B%D7%A8%D7%94') השכרה
+                      a(href='/api/houses/spec/rent') השכרה
                     li
-                      a(href='api/houses/מכירה') מכירה
+                      a(href='/api/houses/spec/sale') מכירה
               li
-                a(href='api/log')
+                
                   button.btn.btn-default( type='button', data-toggle='modal', data-target='.bs-example-modal-sm')
-                  | כניסה לחשבון 
-                  i.fas.fa-user-alt
+                    a.heshbon(href='users/register')
+                      if user
+                         p #{user.name}
+                         
+                         a(href='/logout') יציאה ממערכת
+                      else
+                         | כניסה לחשבון/הרשמה
+                         
               li
-                a(href='api/houses/addNew')
-                  button.btn.btn-default(type='button', style='background-color: #0FB654') פרסום מודעה
+                button.btn.btn-default(type='button', style='background-color: #0FB654') 
+                  if user
+                    a(href='/api/houses/specta/add') פרסום מודעה
+                  else
+                    a(href='/users/register') פרסום מודעה
 
     
 

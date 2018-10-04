@@ -62,7 +62,8 @@ router.get('/houses', function(req,res){
       } 
       let list = houses;
       res.json(list);
-      /res.render('houses', {list:list});/
+      const host = req.headers.host;
+      /res.render('houses', {list:list,host:host});/
   });
 });
 
@@ -72,7 +73,8 @@ router.get('/houses/spec/:_types/:_deal', function(req,res){
   House.getHousesSpec(req.params._deal, req.params._types, function(err, houses){
       if(err){
           throw err;
-      } 
+      }
+      const host = req.headers.host; 
       let list = houses.filter(h=> h.deal === req.params._deal);
       let list2 = list.filter(h=> h.types === req.params._types);
       res.json(list2);
@@ -87,6 +89,7 @@ router.get('/houses/spec/:_rent', function(req,res){
       if(err){
           throw err;
       } 
+      const host = req.headers.host;
       let list = houses.filter(h=> h.deal === "השכרה");
       res.json(list);
       
@@ -108,9 +111,9 @@ router.get('/houses/:_id', function(req,res){
       const area = house.area;
       const price = house.price;
       const houseImages = house.houseImages;
-
+      
     
-
+      const host = req.headers.host + "/";
     
 
       res.render('list', 
@@ -120,7 +123,8 @@ router.get('/houses/:_id', function(req,res){
               rooms:rooms ,
               area:area ,
               price : price + "שקל",
-              houseImages: houseImages
+              houseImages: houseImages,
+              host:host
         
           
           });
@@ -149,8 +153,8 @@ router.delete('/houses/:_id', function(req,res){
 // add new house view
 router.get('/houses/specta/add', function(req,res){
   
-      
-  res.render('form-addhouse');
+  const host = req.headers.host;
+  res.render('form-addhouse', {host:host});
 
 });
 
