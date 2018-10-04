@@ -19,7 +19,7 @@ main
               span.icon-bar
               span.icon-bar
             a.navbar-brand(href='/')
-              img(alt='Brand', src='images/logo.jpg', style='height: 50px;')
+              img(alt='Brand', src='/images/logo.jpg', style='height: 50px;')
               div
           #myNavbar.collapse.navbar-collapse
             ul.nav.navbar-nav.nav-tabs(role='tablist')
@@ -36,7 +36,7 @@ main
               li
                 
                   button.btn.btn-default( type='button', data-toggle='modal', data-target='.bs-example-modal-sm')
-                    a.heshbon(href='users/register')
+                    a.heshbon(href='/users/register')
                       if user
                          p #{user.name}
                          
@@ -59,31 +59,30 @@ main
           each val in values
             h2=val.msg
        
-    .row(style="margin-top:150px;")
+    .row(style="margin-top:100px;")
       .col-md-6.col-md-offset-3
-        h1.display-4.m-b-2 הרשמה
+        h1.display-4.m-b-2(style="background-color:#6200EE; color:#FFFFFF;") הרשמה
     
         // register form
         form(method='POST' action='/users/register' style="margin-top=150px;")
           div.form-group
-            label(for='name') שם ושם משפחה:
-            input#name.form-control(type='text', placeholder='first and last' name='name')
+            span#basic-addon2.input-group-addon שם משתמש
+            input#name.form-control(type='text', name='username', pattern="[a-zA-Z0-9]+") 
           div.form-group
-            label(for='name') שם משתמש:
-            input#name.form-control(type='text', placeholder='first and last' name='username') 
+            span#basic-addon2.input-group-addon מאייל
+            input#email.form-control(type='email', placeholder='name@gmail.com' name='email')
           div.form-group
-            label(for='email') מאייל:
-            input#email.form-control(type='email', placeholder='name@email.com' name='email')
+            span#basic-addon2.input-group-addon סיסמה
+            input#pw.form-control(type='password' name='password' pattern="[a-zA-Z0-9]+")
           div.form-group
-            label(for='pw') סיסמה:
-            input#pw.form-control(type='password' name='password')
-          div.form-group
-            label(for='pw') אימות סיסמה:
-            input#pw.form-control(type='password' name='password2')
-          input( type="submit" value="הרשמה")
-
-    h1 אם יש לך חשבון כנם
-    a(href="/users/login") כניסה  
+            span#basic-addon2.input-group-addon אימות סיסמה
+            input#pw.form-control(type='password' name='password2' pattern="[a-zA-Z0-9]+")
+          input.btn.btn-success( type="submit" value="הרשמה")
+    
+    .row
+      .col-md-6.col-md-offset-3
+        h1 אם יש לך חשבון כנם
+        a.btn.btn-success(href="/users/login") כניסה  
 
 
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')

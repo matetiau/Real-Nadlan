@@ -22,18 +22,19 @@ router.get('/register', (req, res) => {
   
   router.post('/register',urlencodedParser, (req, res,next) => {
   
-    const  name = req.body.name;
+   
     const  email = req.body.email;
     const  password = req.body.password;
     const  password2 = req.body.password2;
     const  username = req.body.username;
     
   
-    req.checkBody('name', 'Name is required').notEmpty();
+  
     req.checkBody('email', 'Email is required').notEmpty();
     req.checkBody('email', 'Email is required').isEmail();
     req.checkBody('password', 'Password is required').notEmpty();
     req.checkBody('username', 'Username is required').notEmpty();
+    
     req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
 
     let errors = req.validationErrors();
@@ -46,7 +47,7 @@ router.get('/register', (req, res) => {
       });console.log(errors);
     } else {
       let newUser = new User({
-        name:name,
+        
         email:email,
         username:username,
         password:password

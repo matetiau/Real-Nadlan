@@ -236,6 +236,7 @@ li a{
 .new > div:hover{
     transform: scale(1.2); 
 }
+
 .col-sm-12{
    padding: 0;
     margin: 0;
@@ -355,7 +356,10 @@ li a{
     padding: 2%;
     display: flex;
 }
-.desc > div{
+.desc >a{
+    display: flex;
+}
+a > .list-group{
     align-self: flex-end;
 }
 
@@ -382,4 +386,8 @@ li a{
     color: aliceblue;
 }
 
+/* adding style to reg form */
 
+.input-group-addon{
+    width: 20%;
+}

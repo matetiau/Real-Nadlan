@@ -29,7 +29,7 @@ const fileFilter = (req, file, cb) =>{
 const upload = multer({
   storage:storage, 
   limits:{
-  fileSize: 1024 *1024 *2
+  fileSize: 1024 *1024 *5
 },
 fileFilter : fileFilter
 });
@@ -169,6 +169,7 @@ router.post('/houses/specta/add', upload.any(),urlencodedParser, function(req,re
   house.rooms = req.body.rooms;
   house.price = req.body.price;
   house.user = req.user._id;
+  house.premiumHouse = req.body.premiumHouse;
   //making link to the image for house
   house.houseImages = (req.files.map(house => house.path.replace("uploads\\","http://localhost:3000/")));
 
