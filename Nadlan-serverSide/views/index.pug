@@ -49,11 +49,11 @@ main
                          | כניסה לחשבון/הרשמה
                          
               li
-                button.btn.btn-default(type='button', style='background-color: #0FB654') 
+                button.btn.btn-default(type='button', style='background-color: #0FB654;') 
                   if user
-                    a(href='/api/houses/specta/add') פרסום מודעה
+                    a(href='/api/houses/specta/add' style="color:#ffffff;") פרסום מודעה
                   else
-                    a(href='/users/register') פרסום מודעה
+                    a(href='/users/register' style="color:#ffffff;") פרסום מודעה
                     
       // - carousel -
       #catalog-slider.carousel.slide(data-ride='carousel')

@@ -60,11 +60,12 @@ main
             h2=val.msg
        
     .row(style="margin-top:100px;")
-      .col-md-6.col-md-offset-3
-        h1.display-4.m-b-2(style="background-color:#6200EE; color:#FFFFFF;") הרשמה
+      .col-md-6.col-md-offset-3(style="background-color:#2e7d32;")
+        
     
         // register form
-        form(method='POST' action='/users/register' style="margin-top=150px;")
+        form(method='POST' action='/users/register' style=" padding:10px;")
+        h1.display-4.m-b-2(style=" color:#FFFFFF;") הרשמה
           div.form-group
             span#basic-addon2.input-group-addon שם משתמש
             input#name.form-control(type='text', name='username', pattern="[a-zA-Z0-9]+") 
