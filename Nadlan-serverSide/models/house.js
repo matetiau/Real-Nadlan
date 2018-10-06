@@ -47,6 +47,10 @@ var houseSchema = mongoose.Schema({
         type:String,
         require:true
     },
+    superPremiumHouse:{
+        type:String,
+        require:true
+    },
     user:{
         type:String,
         require:true

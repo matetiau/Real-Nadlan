@@ -65,7 +65,7 @@ main
     
         // register form
         form(method='POST' action='/users/register' style=" padding:10px;")
-        h1.display-4.m-b-2(style=" color:#FFFFFF;") הרשמה
+          h1.display-4.m-b-2(style=" color:#FFFFFF; text-align:center; margin-bottom:20px;") הרשמה
           div.form-group
             span#basic-addon2.input-group-addon שם משתמש
             input#name.form-control(type='text', name='username', pattern="[a-zA-Z0-9]+") 
@@ -78,7 +78,7 @@ main
           div.form-group
             span#basic-addon2.input-group-addon אימות סיסמה
             input#pw.form-control(type='password' name='password2' pattern="[a-zA-Z0-9]+")
-          input.btn.btn-success( type="submit" value="הרשמה")
+          input.btn.btn-success( type="submit" value="הרשמה" style="self-align:center;")
     
     .row
       .col-md-6.col-md-offset-3

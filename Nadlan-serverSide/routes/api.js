@@ -170,6 +170,7 @@ router.post('/houses/specta/add', upload.any(),urlencodedParser, function(req,re
   house.price = req.body.price;
   house.user = req.user._id;
   house.premiumHouse = req.body.premiumHouse;
+  house.superPremiumHouse = req.body.superPremiumHouse;
   //making link to the image for house
   house.houseImages = (req.files.map(house => house.path.replace("uploads\\","http://localhost:3000/")));
 

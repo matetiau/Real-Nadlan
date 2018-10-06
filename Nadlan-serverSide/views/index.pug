@@ -61,16 +61,14 @@ main
         // - wrapper slides -
         .carousel-inner(role='listbox')
           .item.active
-            img(src='images/jamie-street-94244-unsplash.jpg', alt='front', style='height: 90vh; width: 100%;')
-            .carousel-caption
-              
-          .item
-            img(src='images/jessica-furtney-244838-unsplash.jpg', alt='back', style='height: 90vh; width: 100%;')
-            .carousel-caption
-              
-          .item
-            img(src='images/jessica-furtney-244838-unsplash.jpg', alt='back', style='height: 90vh; width: 100%;')
-            .carousel-caption
+                img(src= superList[0].houseImages[0], alt='front', style='height: 75vh; width: 100%;')
+                .carousel-caption(style="font-size:20px; background:rgba(0, 0, 0, 0.25);")=superList[0].price
+                 
+          - var values = superList.slice(1,superList.length);
+              each val in values
+                .item
+                  img(src = val.houseImages[0] , alt='back', style='height: 75vh; width: 100%;')
+                  .carousel-caption(style="font-size:20px; background:rgba(0, 0, 0, 0.25);")=val.price + val.types
               
       a.left.carousel-control(href='#catalog-slider', role='button', data-slide='next')
         span.glyphicon.glyphicon-chevron-left(aria-hidden='true')

@@ -21,7 +21,8 @@ router.get('/', function(req,res){
       
       const host = req.headers.host; 
       let list = houses.filter(h=> h.premiumHouse === "premium");
-      res.render('index', {list:list,user:req.user,host:host});
+      let superList = houses.filter(h=> h.superPremiumHouse === "superPremium");
+      res.render('index', {list:list,user:req.user,host:host,superList:superList});
   });
 });
 

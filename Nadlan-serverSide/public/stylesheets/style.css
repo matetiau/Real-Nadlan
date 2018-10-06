@@ -111,6 +111,10 @@ html, body, main,contai {
     .nav-tabs > li{
     width: 100%;
 }
+nav{
+    left:0px;
+    right:0px;
+}
     .container-fluid>.navbar-collapse{
         margin:40px 0 0 0;
         padding: 0;
@@ -137,10 +141,10 @@ html, body, main,contai {
     }
 }
 .navbar-toggle{
-    margin:20px 20px 0 0;
+    margin:30px 60px 0 0;
 }
 .navbar-brand{
-    margin-left:10px;
+    margin-left:30px;
 }
 .in{
      width: 100%;
@@ -390,6 +394,13 @@ a > .list-group{
 
 .input-group-addon{
     width: 20%;
-    font-weight: 500;
+    font-weight: bold;
+    background-color: #2E7D32;
+    color: #ffffff;
+    border-color:#2E7D32;
+
 }
 
+.form-name{
+    font-size:20px;
+}
