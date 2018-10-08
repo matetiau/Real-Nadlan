@@ -53,15 +53,17 @@ main
 
     
 
-    .errors
-      if errors
-        - var values = errors;
-          each val in values
-            h2=val.msg
+    
+            
        
     .row(style="margin-top:100px;")
       .col-md-6.col-md-offset-3(style="background-color:#2e7d32;")
-        
+        .errors
+        if errors
+          - var values = errors;
+            ul.list-group(style="margin-top:20px; text-align:center; align-self:center; padding:10px;")
+              each val in values
+                li.list-group-item.list-group-item-danger(style="margin-top:10px;")=val.msg
     
         // register form
         form(method='POST' action='/users/register' style=" padding:10px;")

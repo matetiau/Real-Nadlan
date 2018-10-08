@@ -45,12 +45,15 @@ router.get('/register', (req, res) => {
    // check for duplicate username
    const duplicateUserName = list.filter(h => h.username === username );
    const duplicateEmail = list.filter(h => h.email === email);
-   
+   const usersNames = list.map(h=> h.username);
   
     req.checkBody('email', 'Email is required').notEmpty();
     req.checkBody('email', 'Email is required').isEmail();
     req.checkBody('password', 'Password is required').notEmpty();
+    
+    req.checkBody('password', 'Password is too short too short at least 5 chars').isLength({ min: 5  });
     req.checkBody('username', 'Username is required').notEmpty();
+    req.checkBody('username', 'Username is too short at least 3 chars').isLength({ min: 3 });
     req.checkBody(duplicateUserName, 'Username already exists').isLength(1);
     req.checkBody(duplicateEmail, 'Email already exists').isLength(1);
     req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
@@ -62,7 +65,7 @@ router.get('/register', (req, res) => {
       res.render('reg', {
         errors:errors
       });
-      
+      console.log(errors);
     } else {
       let newUser = new User({
         
