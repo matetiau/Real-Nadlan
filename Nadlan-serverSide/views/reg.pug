@@ -11,7 +11,7 @@ html(dir='rtl')
   link(rel='stylesheet', type='text/css', href='css/font/flaticon.css')
 main
     .up
-      nav.navbar.navbar-inverse
+      nav.navbar.navbar-inverse.navbar-fixed-top
         .container-fluid
           .navbar-header
             button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
@@ -36,7 +36,7 @@ main
               li
                 
                   button.btn.btn-default( type='button', data-toggle='modal', data-target='.bs-example-modal-sm')
-                    a.heshbon(href='/users/register')
+                    a.heshbon(href='users/login')
                       if user
                          p #{user.name}
                          
@@ -45,11 +45,11 @@ main
                          | כניסה לחשבון/הרשמה
                          
               li
-                button.btn.btn-default(type='button', style='background-color: #0FB654') 
+                button.btn.btn-default(type='button', style='background-color: #0FB654;') 
                   if user
-                    a(href='/api/houses/specta/add') פרסום מודעה
+                    a(href='/api/houses/specta/add' style="color:#ffffff;") פרסום מודעה
                   else
-                    a(href='/users/register') פרסום מודעה
+                    a(href='/users/register' style="color:#ffffff;") פרסום מודעה
 
     
 
@@ -61,10 +61,12 @@ main
         .errors
         if errors
           - var values = errors;
-            ul.list-group(style="margin-top:20px; text-align:center; align-self:center; padding:10px;")
+            ul.list-group(style="margin-top:20px; text-align:left; align-self:center; padding:10px;")
               each val in values
                 li.list-group-item.list-group-item-danger(style="margin-top:10px;")=val.msg
-    
+                  span.glyphicon.glyphicon-exclamation-sign(aria-hidden='true')
+                  
+                
         // register form
         form(method='POST' action='/users/register' style=" padding:10px;")
           h1.display-4.m-b-2(style=" color:#FFFFFF; text-align:center; margin-bottom:20px;") הרשמה
@@ -83,9 +85,9 @@ main
           input.btn.btn-success( type="submit" value="הרשמה" style="self-align:center;")
     
     .row
-      .col-md-6.col-md-offset-3
-        h1 אם יש לך חשבון כנם
-        a.btn.btn-success(href="/users/login") כניסה  
+      .col-md-6.col-md-offset-3(style="background-color:#60AD5E;")
+        h1.display-4.m-b-2(style=" color:#FFFFFF; text-align:center; margin-bottom:20px;") אם יש לך חשבון כנם
+         a.btn.btn-success(href="/users/login" style="self-align:center;") כניסה  
 
 
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')

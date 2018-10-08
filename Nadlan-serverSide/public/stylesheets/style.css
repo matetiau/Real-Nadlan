@@ -167,16 +167,16 @@ li a{
 }
 
 .btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover{
-    background-color:rgba(0,0,0,0.5);
-    color: aliceblue;
+    background-color:#CCCCCC;
+    color: #696969;
 }
 .btn:focus{
     background-color:rgba(0,0,0,0.5);
     color: aliceblue;
 }
 .btn:hover{
-    background-color:rgba(0,0,0,0.5);
-    color: aliceblue;
+    background-color:#CCCCCC;
+    color: #696969;
 }
 .dropdown-menu{
     background-color:rgba(0,0,0,0.5);
@@ -372,7 +372,7 @@ a > .list-group{
 .footer{
     display: flex;
     width: 100%;
-    background-color: #F8F8F8;
+    background-color: #616161;
 }
 .footer > div {
     width: 33.33%;
@@ -398,7 +398,7 @@ a > .list-group{
     background-color: #2E7D32;
     color: #ffffff;
     border-color:#2E7D32;
-
+    text-align:right;
 }
 
 .form-name{
