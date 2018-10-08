@@ -233,6 +233,9 @@ li a{
     .new > div{
         width: 100%;
     }
+    .more > div{
+        width: 100% !important;
+    }
 }
 @media only screen and (min-width: 601px)and (max-width: 1050px)  {
     .new > div{
@@ -269,7 +272,7 @@ li a{
     font-size: 50px;
 }
 .more > div{
-    width: 33.3%;
+    width: 33.33%;
     background-size: cover;
    
     background-repeat: no-repeat;
@@ -376,6 +379,7 @@ a > .list-group{
     display: flex;
     width: 100%;
     background-color: #616161;
+    flex-wrap: wrap;
 }
 .footer > div {
     width: 33.33%;

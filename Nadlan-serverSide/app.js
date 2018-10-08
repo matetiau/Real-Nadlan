@@ -7,6 +7,8 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
 const config = require('./config/database');
+var favicon = require('serve-favicon')
+
 
 
 
@@ -90,6 +92,8 @@ app.use(express.static('public'));
 
 app.use(express.static('uploads'));
 
+
+app.use(favicon(path.join(__dirname, 'public','images', 'favicon.ico')))
 // Passport Config
 
 
