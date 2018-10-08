@@ -22,8 +22,13 @@ const UserSchema = mongoose.Schema({
 });
 
 
-const User = module.exports = mongoose.model('User', UserSchema);
+var User = module.exports = mongoose.model('User', UserSchema);
 
+
+//get all users
+module.exports.getUsers = function(callback, limit){
+    User.find(callback).limit(limit);
+}
 
 
 

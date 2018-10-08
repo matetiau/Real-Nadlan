@@ -64,7 +64,7 @@ var House = module.exports = mongoose.model("House", houseSchema);
 // get houses
 
 module.exports.getHouses = function(callback, limit){
-    House.find( callback).limit(limit);
+    House.find(callback).limit(limit);
 }
 
 

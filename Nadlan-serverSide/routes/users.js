@@ -15,26 +15,44 @@ var urlencodedParser = bodyParser.urlencoded({ extended: true });
 // Register form
 
 router.get('/register', (req, res) => {
+    
+    
     res.render('reg');
     
   });
 
   
   router.post('/register',urlencodedParser, (req, res,next) => {
-  
+    
+
+    User.getUsers(function(err, users){
+      if(err){
+          throw err;
+      } 
+      let list = users;
+      
+      
+      
+      
+     
+
    
     const  email = req.body.email;
     const  password = req.body.password;
     const  password2 = req.body.password2;
     const  username = req.body.username;
     
-  
+   // check for duplicate username
+   const duplicateUserName = list.filter(h => h.username === username );
+   const duplicateEmail = list.filter(h => h.email === email);
+   
   
     req.checkBody('email', 'Email is required').notEmpty();
     req.checkBody('email', 'Email is required').isEmail();
     req.checkBody('password', 'Password is required').notEmpty();
     req.checkBody('username', 'Username is required').notEmpty();
-    
+    req.checkBody(duplicateUserName, 'Username already exists').isLength(1);
+    req.checkBody(duplicateEmail, 'Email already exists').isLength(1);
     req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
 
     let errors = req.validationErrors();
@@ -43,8 +61,8 @@ router.get('/register', (req, res) => {
     if(errors){
       res.render('reg', {
         errors:errors
-        
-      });console.log(errors);
+      });
+      
     } else {
       let newUser = new User({
         
@@ -69,7 +87,7 @@ router.get('/register', (req, res) => {
         });
     });
     }
-  });
+  }); });
     
       
   
@@ -77,8 +95,11 @@ router.get('/register', (req, res) => {
      
         
     
-    
-   
+// get all users
+
+
+
+
  
   
   
