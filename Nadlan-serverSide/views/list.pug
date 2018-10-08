@@ -9,10 +9,10 @@ html(dir='rtl')
     link(href='https://fonts.googleapis.com/css?family=Rubik', rel='stylesheet')
     link(rel='stylesheet', type='text/css', href='/stylesheets/style2.css')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa', crossorigin='anonymous')
-  body
+  
     // - navbar
     .up
-      nav.navbar.navbar-inverse
+      nav.navbar.navbar-inverse.navbar-fixed-top
         .container-fluid
           .navbar-header
             button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
@@ -37,7 +37,7 @@ html(dir='rtl')
               li
                 
                   button.btn.btn-default( type='button', data-toggle='modal', data-target='.bs-example-modal-sm')
-                    a.heshbon(href='/users/register')
+                    a.heshbon(href='users/login')
                       if user
                          p #{user.name}
                          
@@ -46,11 +46,11 @@ html(dir='rtl')
                          | כניסה לחשבון/הרשמה
                          
               li
-                button.btn.btn-default(type='button', style='background-color: #0FB654') 
+                button.btn.btn-default(type='button', style='background-color: #0FB654;') 
                   if user
-                    a(href='/api/houses/specta/add') פרסום מודעה
+                    a(href='/api/houses/specta/add' style="color:#ffffff;") פרסום מודעה
                   else
-                    a(href='/users/register') פרסום מודעה
+                    a(href='/users/register' style="color:#ffffff;") פרסום מודעה
       
       // - carousel
       .container-fluid.row.main(style='position:relative;')
