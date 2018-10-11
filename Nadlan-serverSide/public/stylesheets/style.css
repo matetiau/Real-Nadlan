@@ -17,21 +17,10 @@ html, body, main,contai {
     padding: 0;
     margin: 0;
 }
-.carousel .item {
-  height: 100%;
-    
-}
 .up{
     position: relative;
 }
 
-.carousel {
-    position: relative;
-    top: 0;
-    height: 100%;
-    order: 2;
-    
-}
 .navbar-form>div{
     margin: 2%;
 }
@@ -47,15 +36,12 @@ html, body, main,contai {
 .dropa{
     background-color:aliceblue !important;
 }
-.navbar-form{
+.navbar-form, .form-group{
     display: flex;
     width: 100%;
     
 }
-.form-group{
-    width: 100%;
-    display: flex;
-}
+
 
 .navbar.navbar-inverse{
 	margin-bottom: 0px;
@@ -71,7 +57,7 @@ html, body, main,contai {
 .navbar-brand{
     position: absolute;
     left: 10px;
-    top: 10px;
+    
     z-index: 2;
 }
 .navbar.navbar-inverse .navbar-nav>li>a{
@@ -164,6 +150,7 @@ nav{
     text-align: center;
     width: 100%;
     padding: 0px;
+    border-radius: 0 !important;
 }
 li a{
     padding: 0px;
@@ -288,45 +275,6 @@ li a{
 
 
 
-/*style of list group from many houseses view*/
-.general{
-    list-style: none;
-}
-.koko{
-    display: flex;
-    width: 100%;
-    position: relative;
-    flex-wrap: wrap;
-}
-.kokoaa{
-    margin: 120px 120px 0 120px;
-    line-height: 200px;
-}
-.koko > li {
-    width: 15%;
-    font-size: 25px;
-    text-align: center;
-    vertical-align: middle;
-    
-}
-.price{
-    font-size: 25px !important;
-    color: tomato;
-}
-.house-link{
-    color: #8F8F8F;
-}
-.house-link:hover{
-    text-decoration: none;
-    color: #8F8F8F;
-}
-/*description in houses*/
-.koko description{
-    font-size:1px;
-}
-
-
-
 
 
 
@@ -380,10 +328,12 @@ a > .list-group{
     width: 100%;
     background-color: #616161;
     flex-wrap: wrap;
+    margin: 0 10% 0 10%;
 }
 .footer > div {
-    width: 33.33%;
+    width: 50%;
     text-align: center;
+    margin-top: 50px;
 }
 
 .heshbon{
@@ -397,17 +347,6 @@ a > .list-group{
     color: aliceblue;
 }
 
-/* adding style to reg form */
 
-.input-group-addon{
-    width: 20%;
-    font-weight: bold;
-    background-color: #2E7D32;
-    color: #ffffff;
-    border-color:#2E7D32;
-    text-align:right;
-}
 
-.form-name{
-    font-size:20px;
-}
+

@@ -61,9 +61,9 @@ router.get('/houses', function(req,res){
           throw err;
       } 
       let list = houses;
-      res.json(list);
+      
       const host = req.headers.host;
-      /res.render('houses', {list:list,host:host});/
+      res.render('houses', {list:list,host:host});
   });
 });
 
@@ -124,8 +124,9 @@ router.get('/houses/:_id', function(req,res){
               area:area ,
               price : price + "שקל",
               houseImages: houseImages,
+              host:host,
+              user:req.user,
               host:host
-        
           
           });
     });

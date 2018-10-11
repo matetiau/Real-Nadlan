@@ -5,123 +5,125 @@ head
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
     link(rel='stylesheet', type='text/css', href='/stylesheets/style-form.css')
     link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
-main
-    .up
-      nav.navbar.navbar-inverse.navbar-fixed-top
-        .container-fluid
-          .navbar-header
-            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            a.navbar-brand(href='/')
-              img(alt='Brand', src='/images/logo.jpg', style='height: 50px;')
-              div
-          #myNavbar.collapse.navbar-collapse
-            ul.nav.navbar-nav.nav-tabs(role='tablist')
-              li
-                .dropdown
-                  button#dropdownMenu1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
-                    | פרסומים
-                    span.caret
-                  ul.dropdown-menu(aria-labelledby='dropdownMenu1')
-                    li
-                      a(href='/api/houses/spec/rent') השכרה
-                    li
-                      a(href='/api/houses/spec/sale') מכירה
-              li
-                
-                  button.btn.btn-default( type='button', data-toggle='modal', data-target='.bs-example-modal-sm')
-                    a.heshbon(href='users/login')
+body
+  main
+    .my
+        .up
+          nav.navbar.navbar-inverse.navbar-fixed-top
+            .container-fluid
+              .navbar-header
+                button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
+                  span.icon-bar
+                  span.icon-bar
+                  span.icon-bar
+                a.navbar-brand(href='/')
+                  img(alt='Brand', src='/images/logo.png')
+                  div
+              #myNavbar.collapse.navbar-collapse
+                ul.nav.navbar-nav.nav-tabs(role='tablist')
+                  li
+                    .dropdown
+                      button#dropdownMenu1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
+                        | פרסומים
+                        span.caret
+                      ul.dropdown-menu(aria-labelledby='dropdownMenu1')
+                        li
+                          a(href='/api/houses/spec/rent') השכרה
+                        li
+                          a(href='/api/houses/spec/sale') מכירה
+                  li
+                    
+                      button.btn.btn-default( type='button', data-toggle='modal', data-target='.bs-example-modal-sm')
+                        a.heshbon(href='users/login')
+                          if user
+                            p #{user.name}
+                            
+                            a(href='/logout') יציאה ממערכת
+                          else
+                            | כניסה לחשבון/הרשמה
+                            
+                  li
+                    button.btn.btn-default(type='button', style='background-color: #0FB654;') 
                       if user
-                         p #{user.name}
-                         
-                         a(href='/logout') יציאה ממערכת
+                        a(href='/api/houses/specta/add' style="color:#ffffff;") פרסום מודעה
                       else
-                         | כניסה לחשבון/הרשמה
-                         
-              li
-                button.btn.btn-default(type='button', style='background-color: #0FB654;') 
-                  if user
-                    a(href='/api/houses/specta/add' style="color:#ffffff;") פרסום מודעה
-                  else
-                    a(href='/users/register' style="color:#ffffff;") פרסום מודעה
+                        a(href='/users/register' style="color:#ffffff;") פרסום מודעה
 
-                    //form for adding new house
-    
-    .row(style="margin-top:100px;")
-      .col-md-6.col-md-offset-3(style="background-color:#2e7d32;")
-        .errors
-          if errors
-            - var values = errors;
-              each val in values
-                h2=val.msg
-          form(method='POST', action='/api/houses/specta/add' enctype='multipart/form-data' style=" padding:10px; color:aliceblue; text-align:right;" )
-            h1.display-4.m-b-2(style=" color:#FFFFFF; margin-bottom:20px; text-align:center;") תרכיב מודעה חדשה
-            .form-group
-                span#basic-addon2.input-group-addon תיאור קצר:
-                input.form-control(name='title', type='text')
-            .form-group
-                span#basic-addon2.input-group-addon(style="width:20%; text-align:right;") סוג:  
-                input.form-control(type="radio" name="types" value="דירה" style="width:20%; font-weight:bold;") 
-                |  דירה
-                input.form-control(type="radio" name="types" value="בית פרטי" style="width:20%; font-weight:bold;") 
-                |  בית פרטי
-                input.form-control(type="radio" name="types" value="קרקע" style="width:20%; font-weight:bold;")
-                |  קרקע
-                input.form-control(type="radio" name="types" value="משרד" style="width:20%; font-weight:bold;")
-                |  משרד
-            .form-group
-                span#basic-addon2.input-group-addon סוג עסקה:
-                input.form-control(type="radio" name="deal" value="מכירה") 
-                |  מכירה
-                input.form-control(type="radio" name="deal" value="השכרה") 
-                |  השכרה
-            .form-group
-                span#basic-addon2.input-group-addon חדרים:
-                select.form-control(name='rooms' style="width:25%;")
-                    option(value='1') 1
-                    option(value='1.5') 1.5
-                    option(value='2') 2
-                    option(value='2.5') 2.5
-                    option(value='3') 3
-                    option(value='3.5;') 3.5
-                    option(value='2.5') 4
-                    option(value='3') 4.5
-                    option(value='5;') 5
-                    option(value='5.5;') 5.5
-                    option(value='6;') 6
-                    option(value='6.5;') 6.5
-                    option(value='7+;') 7+
-            .form-group
-                span#basic-addon2.input-group-addon אזור:
-                select.form-control(name='area' style="width:25%;")
-                    option(value='מרכז') מרכז
-                    option(value='צפון') צפון
-                    option(value='דרום') דרום
-            .form-group
-                span#basic-addon2.input-group-addon תעלה תמונות:
-                 
-                .file-field(style="width:25%;")
-                  
-                  .btn.btn-primary תעלה תמונה אחד או יותר
-                    span.glyphicon.glyphicon-paperclip(aria-hidden='true') 
-                    input(type='file',name='houseImage', multiple='')
-                
-            .form-group
-                span#basic-addon2.input-group-addon מחיר בשקלים:
-                input.form-control(name='price', type='text' , style="width:25%;")
-            .form-group
-                span#basic-addon2.input-group-addon אם אתה מעוניין לשדרג מודעה כדי שיופיע בעמוד ראשי ?
-                input.form-control(type="radio" name="premiumHouse" value="premium") 
-                
-            .form-group
-                span#basic-addon2.input-group-addon אם אתה רוצה שמודעה יהיה בראש של עמוד הראש ?
-                input.form-control(type="radio" name="superPremiumHouse" value="superPremium") 
-            input.btn.btn-success( type="submit" value="תעלה" style="self-align:center;")
-            
+                        //form for adding new house
         
-       
-          script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
-          script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
-          script(src='/javascripts/app.js')
+        .row(style="margin-top:100px;")
+          .col-md-6.col-md-offset-3(style="background-color:#2e7d32;")
+            .errors
+              if errors
+                - var values = errors;
+                  each val in values
+                    h2=val.msg
+              form(method='POST', action='/api/houses/specta/add' enctype='multipart/form-data' style=" padding:10px; color:aliceblue; text-align:right;" )
+                h1.display-4.m-b-2(style=" color:#FFFFFF; margin-bottom:20px; text-align:center;") תרכיב מודעה חדשה
+                .form-group
+                    span#basic-addon2.input-group-addon תיאור קצר:
+                    input.form-control(name='title', type='text')
+                .form-group
+                    span#basic-addon2.input-group-addon(style="width:20%; text-align:right;") סוג:  
+                    input.form-control(type="radio" name="types" value="דירה" style="width:20%; font-weight:bold;") 
+                    |  דירה
+                    input.form-control(type="radio" name="types" value="בית פרטי" style="width:20%; font-weight:bold;") 
+                    |  בית פרטי
+                    input.form-control(type="radio" name="types" value="קרקע" style="width:20%; font-weight:bold;")
+                    |  קרקע
+                    input.form-control(type="radio" name="types" value="משרד" style="width:20%; font-weight:bold;")
+                    |  משרד
+                .form-group
+                    span#basic-addon2.input-group-addon סוג עסקה:
+                    input.form-control(type="radio" name="deal" value="מכירה") 
+                    |  מכירה
+                    input.form-control(type="radio" name="deal" value="השכרה") 
+                    |  השכרה
+                .form-group
+                    span#basic-addon2.input-group-addon חדרים:
+                    select.form-control(name='rooms' style="width:25%;")
+                        option(value='1') 1
+                        option(value='1.5') 1.5
+                        option(value='2') 2
+                        option(value='2.5') 2.5
+                        option(value='3') 3
+                        option(value='3.5;') 3.5
+                        option(value='2.5') 4
+                        option(value='3') 4.5
+                        option(value='5;') 5
+                        option(value='5.5;') 5.5
+                        option(value='6;') 6
+                        option(value='6.5;') 6.5
+                        option(value='7+;') 7+
+                .form-group
+                    span#basic-addon2.input-group-addon אזור:
+                    select.form-control(name='area' style="width:25%;")
+                        option(value='מרכז') מרכז
+                        option(value='צפון') צפון
+                        option(value='דרום') דרום
+                .form-group
+                    span#basic-addon2.input-group-addon תעלה תמונות:
+                    
+                    .file-field(style="width:25%;")
+                      
+                      .btn.btn-primary תעלה תמונה אחד או יותר
+                        span.glyphicon.glyphicon-paperclip(aria-hidden='true') 
+                        input(type='file',name='houseImage', multiple='')
+                    
+                .form-group
+                    span#basic-addon2.input-group-addon מחיר בשקלים:
+                    input.form-control(name='price', type='text' , style="width:25%;")
+                .form-group
+                    span#basic-addon2.input-group-addon אם אתה מעוניין לשדרג מודעה כדי שיופיע בעמוד ראשי ?
+                    input.form-control(type="radio" name="premiumHouse" value="premium") 
+                    
+                .form-group
+                    span#basic-addon2.input-group-addon אם אתה רוצה שמודעה יהיה בראש של עמוד הראש ?
+                    input.form-control(type="radio" name="superPremiumHouse" value="superPremium") 
+                input.btn.btn-success( type="submit" value="תעלה" style="self-align:center;")
+                
+            
+          
+              script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
+              script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+              script(src='/javascripts/app.js')

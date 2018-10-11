@@ -7,9 +7,10 @@ html(dir='rtl')
   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
   link(href='https://fonts.googleapis.com/css?family=Rubik', rel='stylesheet')
   link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.2.0/css/all.css', integrity='sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ', crossorigin='anonymous')
-  link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+  link(rel='stylesheet', type='text/css', href='/stylesheets/style-form.css')
   link(rel='stylesheet', type='text/css', href='css/font/flaticon.css')
-main
+body
+  main
     .up
       nav.navbar.navbar-inverse.navbar-fixed-top
         .container-fluid
@@ -19,7 +20,7 @@ main
               span.icon-bar
               span.icon-bar
             a.navbar-brand(href='/')
-              img(alt='Brand', src='/images/logo.jpg', style='height: 50px;')
+              img(alt='Brand', src='/images/logo.png')
               div
           #myNavbar.collapse.navbar-collapse
             ul.nav.navbar-nav.nav-tabs(role='tablist')
@@ -35,7 +36,7 @@ main
                       a(href='/api/houses/spec/sale') מכירה
               li
                 
-                  button.btn.btn-default( type='button', data-toggle='modal', data-target='.bs-example-modal-sm')
+                  button.btn.btn-default( type='button', data-toggle='modal', style="color:white;", data-target='.bs-example-modal-sm')
                     a.heshbon(href='users/login')
                       if user
                          p #{user.name}
@@ -55,9 +56,8 @@ main
 
     
             
-       
     .row(style="margin-top:100px;")
-      .col-md-6.col-md-offset-3(style="background-color:#2e7d32;")
+      .form-conteiner
         .errors
         if errors
           - var values = errors;
@@ -68,13 +68,14 @@ main
                   
                 
         // register form
+       
         form(method='POST' action='/users/register' style=" padding:10px;")
           h1.display-4.m-b-2(style=" color:#FFFFFF; text-align:center; margin-bottom:20px;") הרשמה
           div.form-group
             span#basic-addon2.input-group-addon שם משתמש
             input#name.form-control(type='text', name='username', pattern="[a-zA-Z0-9]+") 
           div.form-group
-            span#basic-addon2.input-group-addon מאייל
+            span#basic-addon2.input-group-addon מייל
             input#email.form-control(type='email', placeholder='name@gmail.com' name='email')
           div.form-group
             span#basic-addon2.input-group-addon סיסמה
@@ -84,10 +85,10 @@ main
             input#pw.form-control(type='password' name='password2' pattern="[a-zA-Z0-9]+")
           input.btn.btn-success( type="submit" value="הרשמה" style="self-align:center;")
     
-    .row
-      .col-md-6.col-md-offset-3(style="background-color:#60AD5E;")
-        h1.display-4.m-b-2(style=" color:#FFFFFF; text-align:center; margin-bottom:20px;") אם יש לך חשבון כנם
-         a.btn.btn-success(href="/users/login" style="self-align:center;") כניסה  
+      .row
+        .form-conteiner2
+          h1.display-4.m-b-2(style=" color:#FFFFFF; text-align:center; margin-bottom:20px;") אם יש לך חשבון 
+            a.btn.btn-success(href="/users/login" style="align-self:center;") כנס  
 
 
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')

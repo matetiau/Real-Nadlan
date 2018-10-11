@@ -1,6 +1,166 @@
-.forma{
-    padding: 10% 30% 10% 30%;
+body,main{
+    height: 100%;
 }
-label{
-    font-size: 20px;
+
+body,main{
+    
+    background-image: url('chelsea-london-phillips-779135-unsplash.jpg');
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.row{
+    margin: 0;
+    display:block;
+    
+}
+
+
+
+.form-conteiner, .form-conteiner2 {
+    background-color:rgba(0,0,0,0.8);
+    clear: both;
+    width: 33.33%;
+    align-content: center;
+    margin: 0 33.33% 0 33.33%;
+}
+
+
+
+.navbar-form>div{
+    margin: 2%;
+}
+
+.navbar.navbar-inverse{
+    margin-bottom: 0px;
+    background-color:rgba(0,0,0,0.5);
+    color: antiquewhite;
+    border: 0px;
+    z-index: 1;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 90px;
+}
+.navbar-brand{
+    position: absolute;
+    left: 10px;
+    margin-left: 0 !important;
+    z-index: 2;
+}
+.navbar.navbar-inverse .navbar-nav>li>a{
+    color:#FBFBFD;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 3vh;
+        
+}
+.navbar.navbar-inverse .navbar-nav>li>a:hover{
+    background-color: #0FB654;
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-toggle{
+    border:0px;
+   
+}
+.navbar-collapse{
+      width: 100%;
+    padding-left: 0;
+        height: 300px;
+        margin-top: 20px;
+            text-align: center;
+}
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover{
+    background-color: #0FB654;
+}
+.nav-tabs{
+    border:0px;
+    height: 70px;
+    width: 90%;
+    padding-right: 0;
+}
+.nav-tabs > li{
+    width: 33.33%;
+}
+.collapse{
+    width: 90%;
+    padding-left: 0;
+}
+.nav-tabs .btn-default{
+    height: 70px;
+   background-color:rgba(0,0,0,0.5);
+    color: aliceblue;
+    font-size: 30px;
+    border: 0;
+    text-align: center;
+    width: 100%;
+    padding: 0;
+    border-radius: 0 !important;
+}
+.heshbon{
+    color:aliceblue;
+}
+.btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover{
+    background-color:#CCCCCC;
+    color: #696969;
+}
+.dropdown-menu{
+    background-color:rgba(0,0,0,0.5);
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+}
+.dropdown-menu li a{
+    color: aliceblue;
+}
+.dropdown-menu li a:hover{
+    color: aliceblue;
+    
+}
+.nav-bar-down .dropdown ul a:hover{
+    background-color: lightgray;
+        color: black;
+       font-size: 15px;
+}
+.dropdown-menu li a:hover{
+    color: aliceblue;
+    background-color:rgba(0,0,0,0.5);
+    font-size: 30px;
+}
+.nav-bar-down .dropdown ul a{
+    background-color: aliceblue;
+    color: black;
+   font-size: 15px;
+   
+}
+/*form style*/
+
+.input-group-addon{
+    width: 20%;
+    font-weight: bold;
+    font-size: 19px;
+    color: #ffffff;
+    background: none;
+    border: none;
+    text-align:right;
+}
+.form-control{
+    background: none;
+    border: none;
+    color: aliceblue;
+    border-bottom: 1px #ffffff solid;
+    
+    border-radius: 0;
+}
+form{
+    padding: 4% 4% 0 4%;
+}
+.form-name{
+    font-size:20px;
+}
+.form-conteiner2{
+    padding: 1% 1% 0.5% 1%;;
+}
+.btn-success{
+    
+    border-radius: 0;
 }

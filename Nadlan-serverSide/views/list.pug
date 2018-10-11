@@ -7,7 +7,7 @@ html(dir='rtl')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
     link(href='https://fonts.googleapis.com/css?family=Rubik', rel='stylesheet')
-    link(rel='stylesheet', type='text/css', href='/stylesheets/style2.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/style-specific-house.css')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa', crossorigin='anonymous')
   
     // - navbar
@@ -20,7 +20,7 @@ html(dir='rtl')
               span.icon-bar
               span.icon-bar
             a.navbar-brand(href='/')
-              img(alt='Brand', src='/images/logo.jpg', style='height: 50px;')
+              img(alt='Brand', src='/images/logo.png')
               div
           #myNavbar.collapse.navbar-collapse
             ul.nav.navbar-nav.nav-tabs(role='tablist')
@@ -37,7 +37,7 @@ html(dir='rtl')
               li
                 
                   button.btn.btn-default( type='button', data-toggle='modal', data-target='.bs-example-modal-sm')
-                    a.heshbon(href='users/login')
+                    a.heshbon(href='/users/login')
                       if user
                          p #{user.name}
                          
@@ -51,10 +51,11 @@ html(dir='rtl')
                     a(href='/api/houses/specta/add' style="color:#ffffff;") פרסום מודעה
                   else
                     a(href='/users/register' style="color:#ffffff;") פרסום מודעה
+                    
       
       // - carousel
-      .container-fluid.row.main(style='position:relative;')
-        #carou.col-md-8.carou
+      .main(style='position:relative;')
+        
           #catalog-slider.carousel.slide(data-ride='carousel')
             // - indicators dot nov
             ol.carousel-indicators
@@ -82,60 +83,54 @@ html(dir='rtl')
             a.right.carousel-control(href='#catalog-slider', role='button', data-slide='prev')
               span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
               span.sr-only Previous
-        // - house specs
-        .col-md-4.spec.text-center.house-spec
-          
-          h2.title תיאור קצר
-          h4  #{title} 
-          hr
-          h2.title סוג
-          h4  #{type} 
-          hr
-          h2.title אזור
-          h4  #{area} 
-          hr
-          if parseFloat(rooms) > 0                     
-           h2.title חדרים
-           h4 #{rooms} 
-          hr
-          h2.title מדיה
-          h4 מזגן מרכזי, חניה ,מרפסת
-          hr
-          h2.title מחיר
-          h4.price #{price} 
-          hr
-          
-        // - map
-        .col-md-8.map
-          #map
-        // - contact
-        .col-md-4.contact.text-center.house-spec
-          h2.title שם
-          h3 יוסי
-          hr
-          h2.title טלפון
-          h3 0546217559
-          hr
-          h2.title מאייל
-          h3
-            button.btn.btn-default.btn-success.email
-              a(href='mailto:kamer1989@gmail.com') איימאל למוכר
-          h3.title דרכי קשר נופסים
-          h3 skype:extasy2134
-          hr
-        // - about site and linksr
-        .col-md-12
-          .col-md-4
-          .col-md-4
-          .col-md-4
-      script.
-        var map;
-        function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 32.080198, lng: 34.770212},
-        zoom: 15
-        });
-        }
+          .text-center.house-spec
+              
+              h2.title תיאור קצר
+              h4  #{title} 
+              hr
+              h2.title סוג
+              h4  #{type} 
+              hr
+              h2.title אזור
+              h4  #{area} 
+              hr
+              if parseFloat(rooms) > 0                     
+              h2.title חדרים
+              h4 #{rooms} 
+              hr
+              h2.title מדיה
+              h4 מזגן מרכזי, חניה ,מרפסת
+              hr
+              h2.title מחיר
+              h4.price #{price} 
+              hr
+              
+            
+          .map
+              #map
+            
+          .contact.text-center.house-spec2
+              h2.title שם
+              h3 יוסי
+              hr
+              h2.title טלפון
+              h3 0546217559
+              hr
+              h2.title מאייל
+              h3
+                button.btn.btn-default.btn-success.email
+                  a(href='mailto:kamer1989@gmail.com') איימאל למוכר
+              h3.title דרכי קשר נופסים
+              h3 skype:extasy2134
+              hr
+          script.
+            var map;
+            function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 32.080198, lng: 34.770212},
+            zoom: 15
+            });
+            }
       script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAngKksHXZYTUrdKk3FxU1SPQbn5H3kOtA&callback=initMap', async='', defer='')
       script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
       script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
