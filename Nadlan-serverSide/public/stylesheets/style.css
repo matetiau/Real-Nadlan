@@ -27,7 +27,7 @@ html, body, main,contai {
 .nav-bar-down{
     
     margin: 0 10% 0 10%;
-    background-color: #0FB654;
+    background-color: rgba(0,0,0,0.5);
     position: absolute;
     top: 70%;
     width: 80%;
@@ -169,7 +169,7 @@ li a{
     color: #696969;
 }
 .dropdown-menu{
-    background-color:rgba(0,0,0,0.5);
+    background-color:rgba(0,0,0,0.7);
     font-size: 30px;
     width: 100%;
     text-align: center;
@@ -186,6 +186,10 @@ li a{
         color: black;
        font-size: 15px;
        
+    }
+
+    .navbar-form >div{
+        margin-top: 0;
     }
 .nav-bar-down .dropdown ul a:hover{
     background-color: lightgray;

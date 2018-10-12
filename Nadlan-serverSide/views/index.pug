@@ -60,15 +60,20 @@ html(dir='rtl')
         // - wrapper slides -
         .carousel-inner(role='listbox')
           .item.active
-                img(src= superList[0].houseImages[0], alt='front', style='height: 75vh; width: 100%;')
-                .carousel-caption(style="font-size:20px; background:rgba(0, 0, 0, 0.25);")=superList[0].price
+                img(src= superList[0].houseImages[0], alt='front', style='height: 90vh; width: 100%;')
+                .carousel-caption(style="font-size:20px; background:rgba(0, 0, 0, 0.5); margin-bottom:115px;")=superList[0].price
                  
           - var values = superList.slice(1,superList.length);
               each val in values
                 .item
-                  img(src = val.houseImages[0] , alt='back', style='height: 75vh; width: 100%;')
-                  .carousel-caption(style="font-size:20px; background:rgba(0, 0, 0, 0.25);")=val.price + val.types
-              
+                  img(src = val.houseImages[0] , alt='back', style='height: 90vh; width: 100%;')
+                  .carousel-caption(style="font-size:20px; background:rgba(0, 0, 0, 0.5);  margin-bottom:115px; padding-bottom:0;")
+                    ul(style="list-style:none; padding:0;")
+                      li= val.title 
+                      li= "אזור: "+val.area
+                      li="מחיר : " +val.price+ " שקל"
+                      li
+                        a.btn.btn-default(href="/api/houses/" + val.id) לך למודעה
       a.left.carousel-control(href='#catalog-slider', role='button', data-slide='next')
         span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
         span.sr-only Previous
@@ -77,30 +82,44 @@ html(dir='rtl')
         span.sr-only Previous
     // navbar down
     .nav-bar-down
-      form.navbar-form.navbar-right(role='search')
-        .dropdown
-          button#dropdownMenu1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
-            | למכירה
-            span.caret
-          ul.dropdown-menu.dropa(aria-labelledby='dropdownMenu1')
-            li
-              a(href='#') להשכרה
-            li
-              a(href='#') למכירה
-        .dropdown
-          button#dropdownMenu1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
-            | סוג נכס
-            span.caret
-          ul.dropdown-menu.dropa(aria-labelledby='dropdownMenu1')
-            li
-              a(href='#') דירה
-            li
-              a(href='#') בית פרטי
-            li
-              a(href='#') קרקע
-        .form-group
-          input.form-control(type='text', placeholder='שכונה כתובת כדומה', style='width: 85%;')
-          a.btn.btn-default.search-btn(href='#', role='button') חפש
+      form.navbar-form.navbar-right(method='POST' role='search' style=" color:white; font-size:25px;" )
+        .form-group.dropdown( style="width:30%; color:white;")
+                    | סוג עסקה:
+                    select.form-control(name='area' )
+                          option(value='מכירה') מכירה
+                          option(value='השכרה') השכרה
+        .form-group.dropdown( style="width:30%;")
+                    | אזור:
+                    select.form-control(name='area' )
+                          option(value='מרכז') מרכז
+                          option(value='צפון') צפון
+                          option(value='דרום') דרום
+        .form-group.dropdown( style="width:30%;")
+                    | חדרים:
+                    select.form-control(name='rooms' style="width:70%;")
+                        option(value='1') 1
+                        option(value='1.5') 1.5
+                        option(value='2') 2
+                        option(value='2.5') 2.5
+                        option(value='3') 3
+                        option(value='3.5;') 3.5
+                        option(value='2.5') 4
+                        option(value='3') 4.5
+                        option(value='5;') 5
+                        option(value='5.5;') 5.5
+                        option(value='6;') 6
+                        option(value='6.5;') 6.5
+                        option(value='7+;') 7+
+        .form-group(style="width:30%;")
+                    | מחיר:
+                    input.form-control(type='text' style="width:70%;")                 
+        .form-group(style=' margin-top:35px;')
+                    | טסקט חופשי:
+                    input.form-control(type='text', placeholder='שכונה כתובת כדומה')
+        button.btn.btn-success( type="submit" aria-label='Left Align' value="חפש") חפש
+          span.glyphicon.glyphicon-search(aria-hidden='true')
+         
+
     h2(style='width: 100%; text-align: center; margin-top:90px;') פרסומים מקודמים היום
     .new
       - var values = list;
