@@ -54,7 +54,12 @@ var houseSchema = mongoose.Schema({
     user:{
         type:String,
         require:true
+    },
+    media:{
+        type:Array,
+        require:true
     }
+    
 
 
 });

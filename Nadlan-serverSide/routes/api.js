@@ -111,7 +111,7 @@ router.get('/houses/:_id', function(req,res){
       const area = house.area;
       const price = house.price;
       const houseImages = house.houseImages;
-      
+      const media = house.media;
     
       const host = req.headers.host + "/";
     
@@ -126,8 +126,8 @@ router.get('/houses/:_id', function(req,res){
               houseImages: houseImages,
               host:host,
               user:req.user,
-              host:host
-          
+              host:host,
+              media:media
           });
     });
 });
@@ -170,6 +170,7 @@ router.post('/houses/specta/add', upload.any(),urlencodedParser, function(req,re
   house.rooms = req.body.rooms;
   house.price = req.body.price;
   house.user = req.user._id;
+  house.media = req.body.media;
   house.premiumHouse = req.body.premiumHouse;
   house.superPremiumHouse = req.body.superPremiumHouse;
   //making link to the image for house

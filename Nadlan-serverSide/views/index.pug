@@ -62,7 +62,7 @@ html(dir='rtl')
           .item.active
                 img(src= superList[0].houseImages[0], alt='front', style='height: 90vh; width: 100%;')
                 .carousel-caption(style="font-size:20px; background:rgba(0, 0, 0, 0.5); margin-bottom:115px;")=superList[0].price
-                 
+            
           - var values = superList.slice(1,superList.length);
               each val in values
                 .item
@@ -82,12 +82,19 @@ html(dir='rtl')
         span.sr-only Previous
     // navbar down
     .nav-bar-down
-      form.navbar-form.navbar-right(method='POST' role='search' style=" color:white; font-size:25px;" )
+      form.navbar-form.navbar-right(method='GET' action='/api/houses' role='search' style=" color:white; font-size:25px;" )
         .form-group.dropdown( style="width:30%; color:white;")
                     | סוג עסקה:
-                    select.form-control(name='area' )
+                    select.form-control(name='deal' )
                           option(value='מכירה') מכירה
                           option(value='השכרה') השכרה
+        .form-group.dropdown( style="width:30%;")
+                    | סוג נכס
+                    select.form-control(name='types' )
+                          option(value='דירה') דירה
+                          option(value='בית פרטי') בית פרטי
+                          option(value='קרקע') קרקע
+                          option(value='משרד') משרד
         .form-group.dropdown( style="width:30%;")
                     | אזור:
                     select.form-control(name='area' )
@@ -112,15 +119,12 @@ html(dir='rtl')
                         option(value='7+;') 7+
         .form-group(style="width:30%;")
                     | מחיר:
-                    input.form-control(type='text' style="width:70%;")                 
-        .form-group(style=' margin-top:35px;')
-                    | טסקט חופשי:
-                    input.form-control(type='text', placeholder='שכונה כתובת כדומה')
-        button.btn.btn-success( type="submit" aria-label='Left Align' value="חפש") חפש
-          span.glyphicon.glyphicon-search(aria-hidden='true')
+                    input.form-control(type='text' style="width:70%;")                
+        input.btn.btn-success( type="submit" aria-label='Left Align' value="חפש")
+         
          
 
-    h2(style='width: 100%; text-align: center; margin-top:90px;') פרסומים מקודמים היום
+    h2(style='width: 100%; text-align: center; margin-top:30px;') פרסומים מקודמים היום
     .new
       - var values = list;
         each val in values

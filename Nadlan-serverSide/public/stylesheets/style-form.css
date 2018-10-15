@@ -137,7 +137,7 @@ body{
 .input-group-addon{
     width: 20%;
     font-weight: bold;
-    font-size: 19px;
+    font-size: 20px;
     color: #ffffff;
     background: none;
     border: none;
@@ -148,8 +148,17 @@ body{
     border: none;
     color: aliceblue;
     border-bottom: 1px #ffffff solid;
-    
+    font-weight:bold;
     border-radius: 0;
+}
+.form-group{
+    font-size: 20px;
+}
+.input.form-control{
+    font-weight:bold;
+}
+.form-control option{
+    color: 	#353839;
 }
 form{
     padding: 4% 4% 0 4%;

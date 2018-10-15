@@ -2,7 +2,9 @@
             margin:0%;
             font-family: 'Rubik', sans-serif;
         }
-
+br{
+    
+}
 
 /*navbar style*/
         .navbar-form>div{
@@ -222,6 +224,7 @@ carousel-inner .image{
 
 .title{
     color: #94979D;
+    
 }
 h4{
     color:#303030;

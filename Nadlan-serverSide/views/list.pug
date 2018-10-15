@@ -86,42 +86,57 @@ html(dir='rtl')
           .text-center.house-spec
               
               h2.title תיאור קצר
-              h4  #{title} 
+                h4  #{title} 
               hr
-              h2.title סוג
-              h4  #{type} 
+              div.title(style=" display:flex; flex-wrap: wrap;")
+                div(style="width:50%;")
+                  h1 סוג
+                    h4  #{type} 
+                div(style="width:50%;")
+                  h1 אזור
+                    h4  #{area} 
               hr
-              h2.title אזור
-              h4  #{area} 
-              hr
-              if parseFloat(rooms) > 0                     
-              h2.title חדרים
-              h4 #{rooms} 
+              div.title(style=" display:flex; flex-wrap: wrap;")
+                div(style="width:50%;")
+                  h2.title מחיר
+                    h4.price #{price} 
+                div(style="width:50%;")
+                  if parseFloat(rooms) > 0                     
+                    h2.title חדרים
+                      h4 #{rooms} 
+                
+              
               hr
               h2.title מדיה
-              h4 מזגן מרכזי, חניה ,מרפסת
-              hr
-              h2.title מחיר
-              h4.price #{price} 
-              hr
+              div(style=" display:flex; flex-wrap: wrap;")
+                - var values = media;
+                each val in values
+                  div(style="width:50%;")
+                    li(style="list-style:none; color:#303030; font-size:20px;")=val
+                      span.glyphicon.glyphicon.glyphicon-ok(aria-hidden='true' style=" color:#0FB654;" )
+              
               
             
           .map
               #map
             
           .contact.text-center.house-spec2
-              h2.title שם
-              h3 יוסי
-              hr
-              h2.title טלפון
-              h3 0546217559
-              hr
-              h2.title מאייל
-              h3
-                button.btn.btn-default.btn-success.email
-                  a(href='mailto:kamer1989@gmail.com') איימאל למוכר
-              h3.title דרכי קשר נופסים
-              h3 skype:extasy2134
+              div.title(style=" display:flex; flex-wrap: wrap;")
+                div(style="width:50%;")
+                  h2.title שם
+                    h3 יוסי
+                div(style="width:50%;")
+                  h2.title טלפון
+                    h3 0546217559
+                div(style="width:50%;")
+                  h2.title מאייל
+                  h3
+                    button.btn.btn-default.btn-success.email
+                      a(href='mailto:kamer1989@gmail.com') איימאל למוכר
+                div(style="width:50%;")
+                  h3.title דרכי קשר נופסים
+                    h3 skype:extasy2134
+
               hr
           script.
             var map;
