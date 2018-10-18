@@ -1,6 +1,6 @@
-extends layout
-
-block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+.messages
+          each type in Object.keys(messages)
+            ul.list-group(class="#{type}" style="margin-top:20px; text-align:left; align-self:center; padding:10px;")
+              each message in messages[type]
+                li.list-group-item.list-group-item-danger(style="margin-top:10px; text-align:right;")= message
+                  span.glyphicon.glyphicon-exclamation-sign(aria-hidden='true')

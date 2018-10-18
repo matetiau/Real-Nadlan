@@ -1,14 +1,15 @@
+doctype html
 html(dir='rtl')
-head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
-    link(rel='stylesheet', type='text/css', href='/stylesheets/style-form.css')
-    link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+  head
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+  link(rel='stylesheet', type='text/css', href='/stylesheets/style-form.css')
+  link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+  
 body
   main
-    .my
-        .up
+    .up
           nav.navbar.navbar-inverse.navbar-fixed-top
             .container-fluid
               .navbar-header
@@ -51,14 +52,16 @@ body
 
                         //form for adding new house
         
-        .row(style="margin-top:100px;")
-          .col-md-6.col-md-offset-3(style="background-color:rgba(0,0,0,0.8);")
+    .row
+          .col-md-6.col-md-offset-3(style="background-color:rgba(0,0,0,0.8); margin-top:100px;")
             .errors
               if errors
                 - var values = errors;
-                  each val in values
-                    h2=val.msg
-              form(method='POST', action='/api/houses/specta/add' enctype='multipart/form-data' style=" padding:10px; color:aliceblue; text-align:right;" )
+                  ul.list-group(style="margin-top:20px; text-align:left; align-self:center; padding:10px;")
+                    each val in values
+                      li.list-group-item.list-group-item-danger(style="margin-top:10px; text-align:right;")=val.msg
+                        span.glyphicon.glyphicon-exclamation-sign(aria-hidden='true')
+            form(method='POST', action='/api/houses/specta/add' enctype='multipart/form-data' style=" padding:10px; color:aliceblue; text-align:right;" )
                 h1.display-4.m-b-2(style=" color:#FFFFFF; margin-bottom:20px; text-align:center;") תרכיב מודעה חדשה
                 .form-group
                     span#basic-addon2.input-group-addon תיאור קצר:
@@ -104,7 +107,7 @@ body
                 
                 .form-group
                   span#basic-addon2.input-group-addon מדיה:
-                  form-control( style="width:25%;")
+                  form-control( style="width:50%;")
                         span.input-group-addon חניה
                           input(type='checkbox', name='media' aria-label='...', value="חניה") 
                         span.input-group-addon מזגן
@@ -124,22 +127,22 @@ body
                       
                       .btn.btn-primary תעלה תמונה אחד או יותר
                         span.glyphicon.glyphicon-paperclip(aria-hidden='true') 
-                        input(type='file',name='houseImage', multiple='')
+                          input(type='file',name='houseImage', multiple='')
                     
                 .form-group
                     span#basic-addon2.input-group-addon מחיר בשקלים:
                     input.form-control(name='price', type='text' , style="width:25%;")
                 .form-group
                     span#basic-addon2.input-group-addon אם אתה מעוניין לשדרג מודעה כדי שיופיע בעמוד ראשי ?
-                    input.form-control(type="radio" name="premiumHouse" value="premium") 
+                      input.form-control(type="radio" name="premiumHouse" value="premium") 
                     
                 .form-group
                     span#basic-addon2.input-group-addon אם אתה רוצה שמודעה יהיה בראש של עמוד הראש ?
-                    input.form-control(type="radio" name="superPremiumHouse" value="superPremium") 
+                      input.form-control(type="radio" name="superPremiumHouse" value="superPremium") 
                 input.btn.btn-success( type="submit" value="תעלה" style="self-align:center;")
                 
             
           
-              script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
-              script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
-              script(src='/javascripts/app.js')
+script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
+script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+script(src='/javascripts/app.js')

@@ -109,6 +109,8 @@ router.get('/register', (req, res) => {
   
   // login
   router.get('/login', (req, res) => {
+    
+
     res.render('login');
     
   });
@@ -118,7 +120,7 @@ router.get('/register', (req, res) => {
     passport.authenticate('local', {
       successRedirect:'/',
       failureRedirect:'/users/login',
-      failureFlash: true
+      failureFlash:  'שם משתמש או סיסמה לא נכונה.'
     })(req,res,next);
   });
 

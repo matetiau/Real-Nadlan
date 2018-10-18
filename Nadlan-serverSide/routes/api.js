@@ -112,7 +112,7 @@ router.get('/houses/:_id', function(req,res){
       const price = house.price;
       const houseImages = house.houseImages;
       const media = house.media;
-    
+  
       const host = req.headers.host + "/";
     
 
@@ -127,7 +127,8 @@ router.get('/houses/:_id', function(req,res){
               host:host,
               user:req.user,
               host:host,
-              media:media
+              media:media,
+    
           });
     });
 });

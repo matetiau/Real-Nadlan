@@ -1,41 +1,30 @@
-body,main{
-    height: 100%;
-    background:none;
-}
-
-
-html{
-    background: url('patrick-tomasso-301239-unsplash.jpg') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  z-index: 1;
-}
-.row{
-    margin: 0 0 0 0;
-}
-
-
-.form-conteiner, .form-conteiner2 {
-    background-color:rgba(0,0,0,0.8);
-    clear: both;
-    width: 33.33%;
-    align-content: center;
-    margin: 0 33.33% 0 33.33%;
-}
-
-
-
 .navbar-form>div{
     margin: 2%;
 }
+.nav-bar-down{
+    
+    margin: 0 10% 0 10%;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 70%;
+    width: 80%;
+
+}
+.dropa{
+    background-color:aliceblue !important;
+}
+.navbar-form, .form-group{
+    display: flex;
+    width: 100%;
+    
+}
+
 
 .navbar.navbar-inverse{
-    margin-bottom: 0px;
+	margin-bottom: 0px;
     background-color:rgba(0,0,0,0.5);
-    color: antiquewhite;
-    border: 0px;
+	color: antiquewhite;
+	border: 0px;
     z-index: 1;
     position: fixed;
     top: 0px;
@@ -45,20 +34,20 @@ html{
 .navbar-brand{
     position: absolute;
     left: 10px;
-    margin-left: 0 !important;
+    
     z-index: 2;
 }
 .navbar.navbar-inverse .navbar-nav>li>a{
-    color:#FBFBFD;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 3vh;
-        
+	color:#FBFBFD;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 3vh;
+		
 }
 .navbar.navbar-inverse .navbar-nav>li>a:hover{
-    background-color: #0FB654;
+	background-color: #0FB654;
 }
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-toggle{
-    border:0px;
+	border:0px;
    
 }
 .navbar-collapse{
@@ -69,7 +58,7 @@ html{
             text-align: center;
 }
 .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover{
-    background-color: #0FB654;
+	background-color: #0FB654;
 }
 .nav-tabs{
     border:0px;
@@ -84,6 +73,51 @@ html{
     width: 90%;
     padding-left: 0;
 }
+@media (max-width: 768px){
+    .nav-tabs > li{
+    width: 100%;
+}
+nav{
+    left:0px;
+    right:0px;
+}
+    .container-fluid>.navbar-collapse{
+        margin:40px 0 0 0;
+        padding: 0;
+    }
+    .nav-tabs{
+        width: 100%;
+        margin:0 0 0 0;
+    }
+.navbar-form{
+   flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+ 
+    
+    .navbar-form > .dropdown  {
+        width: 50%;
+        margin: 3% 0 0 0;
+        text-align: center;
+        order: 2;
+    }   
+    input.form-control{
+        width: 100%;
+    }
+}
+.navbar-toggle{
+    margin:30px 60px 0 0;
+}
+.navbar-brand{
+    margin-left:30px;
+}
+.in{
+     width: 100%;
+    padding-left: 0;
+        height: 300px;
+        margin-top: 40px
+}
 .nav-tabs .btn-default{
     height: 70px;
    background-color:rgba(0,0,0,0.5);
@@ -92,18 +126,28 @@ html{
     border: 0;
     text-align: center;
     width: 100%;
-    padding: 0;
+    padding: 0px;
     border-radius: 0 !important;
 }
-.heshbon{
-    color:aliceblue;
+li a{
+    padding: 0px;
+    color: #337ab7;
 }
+
 .btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover{
     background-color:#CCCCCC;
     color: #696969;
 }
-.dropdown-menu{
+.btn:focus{
     background-color:rgba(0,0,0,0.5);
+    color: aliceblue;
+}
+.btn:hover{
+    background-color:#CCCCCC;
+    color: #696969;
+}
+.dropdown-menu{
+    background-color:rgba(0,0,0,0.7);
     font-size: 30px;
     width: 100%;
     text-align: center;
@@ -115,6 +159,16 @@ html{
     color: aliceblue;
     
 }
+   .nav-bar-down .dropdown ul a{
+        background-color: aliceblue;
+        color: black;
+       font-size: 15px;
+       
+    }
+
+    .navbar-form >div{
+        margin-top: 0;
+    }
 .nav-bar-down .dropdown ul a:hover{
     background-color: lightgray;
         color: black;
@@ -124,52 +178,4 @@ html{
     color: aliceblue;
     background-color:rgba(0,0,0,0.5);
     font-size: 30px;
-}
-.nav-bar-down .dropdown ul a{
-    background-color: aliceblue;
-    color: black;
-   font-size: 15px;
-   
-}
-/*form style*/
-
-.input-group-addon{
-    width: 20%;
-    font-weight: bold;
-    font-size: 20px;
-    color: #ffffff;
-    background: none;
-    border: none;
-    text-align:right;
-}
-.form-control{
-    background: none;
-    border: none;
-    color: aliceblue;
-    border-bottom: 1px #ffffff solid;
-   
-    border-radius: 0;
-}
-.form-group{
-    font-size: 20px;
-}
-.input.form-control{
-    font-weight:bold;
-}
-.form-control option{
-    color: 	#353839;
-}
-form{
-    padding: 4% 4% 0 4%;
-    text-align: center;
-}
-.form-name{
-    font-size:20px;
-}
-.form-conteiner2{
-    padding: 1% 1% 0.5% 1%;;
-}
-.btn-success{
-    
-    border-radius: 0;
 }
