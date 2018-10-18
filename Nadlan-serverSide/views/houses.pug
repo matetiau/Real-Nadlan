@@ -13,53 +13,14 @@ html(dir='rtl')
     main
       .contai
         // Nav-Bar
-        .up
-      nav.navbar.navbar-inverse
-        .container-fluid
-          .navbar-header
-            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            a.navbar-brand(href='/')
-              img(alt='Brand', src='/images/logo.jpg', style='height: 50px;')
-              div
-          #myNavbar.collapse.navbar-collapse
-            ul.nav.navbar-nav.nav-tabs(role='tablist')
-              li
-                .dropdown
-                  button#dropdownMenu1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
-                    | פרסומים
-                    span.caret
-                  ul.dropdown-menu(aria-labelledby='dropdownMenu1')
-                    li
-                      a(href='/api/houses/spec/rent') השכרה
-                    li
-                      a(href='/api/houses/spec/sale') מכירה
-              li
-                
-                  button.btn.btn-default( type='button', data-toggle='modal', data-target='.bs-example-modal-sm')
-                    a.heshbon(href='users/register')
-                      if user
-                         p #{user.name}
-                         
-                         a(href='/logout') יציאה ממערכת
-                      else
-                         | כניסה לחשבון/הרשמה
-                         
-              li
-                button.btn.btn-default(type='button', style='background-color: #0FB654') 
-                  if user
-                    a(href='/api/houses/specta/add') פרסום מודעה
-                  else
-                    a(href='/users/register') פרסום מודעה
+        include navbar
       // list of houses
       
       - var values = list;
         each val in values
                 
                 .kokoaa
-                    a.house-link(href='http://localhost:3000/api/houses-one/' + val.id) 
+                    a.house-link(href='http://localhost:3000/api/houses/' + val.id) 
                             ul.list-group.koko
                             
                                 
@@ -70,7 +31,7 @@ html(dir='rtl')
                                 if parseFloat(val.rooms) > 0
                                   li.list-group-item=JSON.stringify(val.rooms)
                                 li.list-group-item.price=JSON.stringify(val.price)
-                                li.list-group-item.price=JSON.stringify(val.houseImage)
+                                li.list-group-item.price=(val.houseImages[0])
                   
 
 
