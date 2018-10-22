@@ -23,15 +23,16 @@ html(dir='rtl')
                     a.house-link(href='http://localhost:3000/api/houses/' + val.id) 
                             ul.list-group.koko
                             
+                                li.list-group-item(style="background-image: url("+val.houseImages[0]+"); background-size:contain; background-repeat:no-repeat; width: 30%; height: 50vh;")
+                                li.list-group-item(style='width: 70%')=val.title
+                                  ul.list-group.koko
+                                    li.list-group-item=val.deal
+                                    li.list-group-item=val.types
+                                    li.list-group-item=val.area
+                                    if parseFloat(val.rooms) > 0
+                                        li.list-group-item=val.rooms
+                                    li.list-group-item.price=val.price
                                 
-                                li.list-group-item(style='width: 100%')=JSON.stringify(val.title) 
-                                li.list-group-item=JSON.stringify(val.deal) 
-                                li.list-group-item=JSON.stringify(val.types) 
-                                li.list-group-item=JSON.stringify(val.area) 
-                                if parseFloat(val.rooms) > 0
-                                  li.list-group-item=JSON.stringify(val.rooms)
-                                li.list-group-item.price=JSON.stringify(val.price)
-                                li.list-group-item.price=(val.houseImages[0])
                   
 
 

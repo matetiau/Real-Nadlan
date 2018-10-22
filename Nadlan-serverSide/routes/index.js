@@ -7,6 +7,9 @@ router.use(express.json());
 router.use('/api', require('./api'));
 House = require('../models/house');
 
+
+
+
 router.get('/logout', function(req, res){
     req.logout();
     
@@ -20,8 +23,22 @@ router.get('/', function(req,res){
       } 
       if(houses.length>0){
       const host = req.headers.host; 
-      let list = houses.filter(h=> h.premiumHouse === "premium");
-      let superList = houses.filter(h=> h.superPremiumHouse === "superPremium");
+      
+      let randomTwo = [];
+      let randomItem = [];
+        for (let i = 0;i<6;i++){
+            let num = (houses[Math.floor(Math.random()*houses.length)]);
+            if (!randomItem.includes(num)){
+            randomItem.push(num);}}
+      let superList = randomItem;
+        for (let i = 0;i<6;i++){
+            let num = (houses[Math.floor(Math.random()*houses.length)]);
+            if (!randomItem.includes(num)){
+            randomTwo.push(num);}}
+
+
+      
+      let list = randomTwo;
       res.render('index', {list:list,user:req.user,host:host,superList:superList});}
        else {
         res.render('index');
