@@ -24,21 +24,25 @@ router.get('/', function(req,res){
       if(houses.length>0){
       const host = req.headers.host; 
       
-      let randomTwo = [];
-      let randomItem = [];
-        for (let i = 0;i<6;i++){
-            let num = (houses[Math.floor(Math.random()*houses.length)]);
-            if (!randomItem.includes(num)){
-            randomItem.push(num);}}
-      let superList = randomItem;
-        for (let i = 0;i<6;i++){
-            let num = (houses[Math.floor(Math.random()*houses.length)]);
-            if (!randomItem.includes(num)){
-            randomTwo.push(num);}}
-
-
+      let list = [];
+      let superList = [];
       
-      let list = randomTwo;
+        for (let i = 0;i<6;i++){
+            let num = (houses[Math.floor(Math.random()*houses.length)]);
+
+            let koko = (houses[Math.floor(Math.random()*houses.length)]);
+            
+            if (!superList.includes(num)){
+            superList.push(num);}
+            if (!list.includes(koko) ){
+                list.push(koko);}
+                else {
+                    list.push(num);
+                }
+            
+        
+        }
+      
       res.render('index', {list:list,user:req.user,host:host,superList:superList});}
        else {
         res.render('index');

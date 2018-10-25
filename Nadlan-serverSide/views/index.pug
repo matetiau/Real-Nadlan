@@ -44,7 +44,7 @@ html(dir='rtl')
         span.sr-only Previous
     // navbar down
     .nav-bar-down
-      form.navbar-form.navbar-right(method='GET' action='/api/houses' role='search' style=" color:white; font-size:25px;" )
+      form.navbar-form.navbar-right(method='GET' action='api/houses/spec/' role='search' style=" color:white; font-size:25px;" )
         .form-group.dropdown( style="width:30%; color:white;")
                     | סוג עסקה:
                     select.form-control(name='deal' )
@@ -81,7 +81,7 @@ html(dir='rtl')
                         option(value='7+;') 7+
         .form-group(style="width:30%;")
                     | מחיר:
-                    input.form-control(type='text' style="width:70%;")                
+                    input.form-control( name='price' type='text' style="width:70%;")                
         input.btn.btn-success( type="submit" aria-label='Left Align' value="חפש")
          
          

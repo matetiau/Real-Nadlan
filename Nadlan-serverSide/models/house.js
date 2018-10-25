@@ -66,9 +66,6 @@ module.exports.getHouses = function(callback, limit){
 }
 
 
-module.exports.getHousesSpec = function(_deal,_types,callback, limit){
-    House.find({deal:_deal,types:_types}, callback).limit(limit);
-}
 
 
 // get house

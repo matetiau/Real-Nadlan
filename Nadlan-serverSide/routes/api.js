@@ -77,7 +77,7 @@ router.get('/houses/spec/:_types/:_deal', function(req,res){
       const host = req.headers.host; 
       let list = houses.filter(h=> h.deal === req.params._deal);
       let list2 = list.filter(h=> h.types === req.params._types);
-      res.json(list2);
+      res.render('houses', {list:list2,host:host});
       
   });
 });
@@ -91,7 +91,7 @@ router.get('/houses/spec/:_rent', function(req,res){
       } 
       const host = req.headers.host;
       let list = houses.filter(h=> h.deal === "השכרה");
-      res.json(list);
+      res.render('houses', {list:list,host:host});
       
   });
 });
