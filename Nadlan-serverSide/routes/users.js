@@ -47,16 +47,16 @@ router.get('/register', (req, res) => {
    const duplicateEmail = list.filter(h => h.email === email);
    const usersNames = list.map(h=> h.username);
   
-    req.checkBody('email', 'Email is required').notEmpty();
-    req.checkBody('email', 'Email is required').isEmail();
-    req.checkBody('password', 'Password is required').notEmpty();
+    req.checkBody('email', 'חסר מייל').notEmpty();
+    req.checkBody('email', 'זה לא מייל').isEmail();
+    req.checkBody('password', 'חסרה סיסמה').notEmpty();
     
-    req.checkBody('password', 'Password is too short too short at least 5 chars').isLength({ min: 5  });
-    req.checkBody('username', 'Username is required').notEmpty();
-    req.checkBody('username', 'Username is too short at least 3 chars').isLength({ min: 3 });
-    req.checkBody(duplicateUserName, 'Username already exists').isLength(1);
-    req.checkBody(duplicateEmail, 'Email already exists').isLength(1);
-    req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
+    req.checkBody('password', 'סיסמה קצרה מדי לפחות 5 אותיות').isLength({ min: 5  });
+    req.checkBody('username', 'חסר שם משתמש').notEmpty();
+    req.checkBody('username', 'שם משתמש קצר מדי לפחות 3 אותיות').isLength({ min: 3 });
+    req.checkBody(duplicateUserName, 'שם משתממש קיים כבר').isLength(1);
+    req.checkBody(duplicateEmail, 'מילל הזה כבר שייך למשתמש שנרשם').isLength(1);
+    req.checkBody('password2', 'סיסמאות לא זהות').equals(req.body.password);
 
     let errors = req.validationErrors();
     
@@ -120,7 +120,7 @@ router.get('/register', (req, res) => {
     passport.authenticate('local', {
       successRedirect:'/',
       failureRedirect:'/users/login',
-      failureFlash:  'שם משתמש או סיסמה לא נכונה.'
+      failureFlash:  'שם משתמש או סימסמה לא נכונים'
     })(req,res,next);
   });
 

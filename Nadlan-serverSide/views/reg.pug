@@ -25,7 +25,7 @@ body
           - var values = errors;
             ul.list-group(style="margin-top:20px; text-align:left; align-self:center; padding:10px;")
               each val in values
-                li.list-group-item.list-group-item-danger(style="margin-top:10px;")=val.msg
+                li.list-group-item.list-group-item-danger(style="margin-top:10px; text-align:right;")=val.msg
                   span.glyphicon.glyphicon-exclamation-sign(aria-hidden='true')
                   
                 

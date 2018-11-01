@@ -8,12 +8,13 @@
 .main{
     display: flex;
     flex-wrap: wrap;
-    margin: 150px 15% 0 15%;
+    margin: 150px 5% 0 5%;
 }
 @media (max-width: 768px){
     .main > div{
     width: 100%;
 }
+
 .carousel{
  
     order:1 !important;
@@ -29,10 +30,13 @@
     order: 3;
 }
 
-
-
-
 }
+.main > div {
+    margin: 2% ;
+}
+
+
+
 
 
 carousel-inner .image{
@@ -46,12 +50,12 @@ carousel-inner .image{
     height: fit-content;
 }
 .house-spec{
-    width: 30%;
+    width: 22%;
     order: 1;
     
 }
 .house-spec2{
-    width: 30%;
+    width: 22%;
     order: 3;
 }
 
