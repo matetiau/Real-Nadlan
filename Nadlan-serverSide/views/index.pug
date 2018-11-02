@@ -44,28 +44,28 @@ html(dir='rtl')
         span.sr-only Previous
     // navbar down
     .nav-bar-down
-      form.navbar-form.navbar-right(method='GET' action='api/houses/spec/' role='search' style=" color:white; font-size:25px;" )
+      form.navbar-form.navbar-right(method='GET' action='/search' role='search' style=" color:white; font-size:25px;" )
         .form-group.dropdown( style="width:30%; color:white;")
                     | סוג עסקה:
-                    select.form-control(name='deal' )
+                    select.form-control(name='deal'  required )
                           option(value='מכירה') מכירה
                           option(value='השכרה') השכרה
         .form-group.dropdown( style="width:30%;")
                     | סוג נכס
-                    select.form-control(name='types' )
+                    select.form-control(name='types'  required )
                           option(value='דירה') דירה
                           option(value='בית פרטי') בית פרטי
                           option(value='קרקע') קרקע
                           option(value='משרד') משרד
         .form-group.dropdown( style="width:30%;")
-                    | אזור:
-                    select.form-control(name='area' )
+                    | אזור :
+                    select.form-control(name='area'  required )
                           option(value='מרכז') מרכז
                           option(value='צפון') צפון
                           option(value='דרום') דרום
         .form-group.dropdown( style="width:30%;")
                     | חדרים:
-                    select.form-control(name='rooms' style="width:70%;")
+                    select.form-control(name='rooms' required style="width:70%;")
                         option(value='1') 1
                         option(value='1.5') 1.5
                         option(value='2') 2
@@ -80,8 +80,10 @@ html(dir='rtl')
                         option(value='6.5;') 6.5
                         option(value='7+;') 7+
         .form-group(style="width:30%;")
-                    | מחיר:
-                    input.form-control( name='price' type='text' style="width:70%;")                
+                    | מחיר מ:
+                    input.form-control( name='priceRangeLow' type='text' style="width:70%;"  required)   
+                    | מחיר עד:
+                    input.form-control( name='priceRangeHigh' type='text' style="width:70%;"  required)              
         input.btn.btn-success( type="submit" aria-label='Left Align' value="חפש")
          
          
@@ -143,8 +145,4 @@ html(dir='rtl')
     
 
 
-    script(src='less.js', type='text/javascript')
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
-    script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
-    script(src='/javascripts/app.js')
 

@@ -9,6 +9,10 @@ House = require('../models/house');
 
 
 
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({ extended: true });
+
+
 
 router.get('/logout', function(req, res){
     req.logout();
@@ -52,15 +56,38 @@ router.get('/', function(req,res){
 
 //for search in index page
 
-router.get('/houses', function(req,res){
+router.get('/search',urlencodedParser, function(req,res){
     House.getHouses(function(err, houses){
         if(err){
             throw err;
         } 
-   
-   
-        let list = houses.filter(h=> h.deal === "השכרה");
-        res.json(list);
+        
+        const types =  req.query.types;
+        let rooms = req.query.rooms;
+        const area =  req.query.area;
+        const priceLow =  req.query.priceRangeLow;
+        const priceHigh =  req.query.priceRangeHigh;
+        const deal =  req.query.deal;
+        
+        if(types === "קרקע"){
+            rooms = "0";
+        }
+        
+        
+
+        let list = houses.filter(house=> house.deal === deal 
+                            && house.types === types
+                            && house.area === area
+                            && parseInt(house.price) >= parseInt(priceLow)
+                            && parseInt(house.price) <= parseInt(priceHigh) );
+        
+        
+        if(list.length === 0){
+            
+
+            res.render('styleForNoHousesFound');
+        } else {
+            res.render('houses', {list:list});}
 
 
    
