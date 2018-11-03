@@ -67,30 +67,26 @@ router.get('/houses', function(req,res){
   });
 });
 
-//get all houses for sale
-
-router.get('/houses/spec/:_types/:_deal', function(req,res){
-  House.getHousesSpec(req.params._deal, req.params._types, function(err, houses){
-      if(err){
-          throw err;
-      }
-      const host = req.headers.host; 
-      let list = houses.filter(h=> h.deal === req.params._deal);
-      let list2 = list.filter(h=> h.types === req.params._types);
-      res.render('houses', {list:list2,host:host});
-      
-  });
-});
 
 
-//get all houses for rent
-router.get('/houses/spec/:_rent', function(req,res){
+
+//get all houses for sale or rent
+router.get('/houses/spec/:_deal', function(req,res){
   House.getHouses(function(err, houses){
       if(err){
           throw err;
       } 
       const host = req.headers.host;
-      let list = houses.filter(h=> h.deal === "השכרה");
+      let deal = req.url.substring(13);
+      
+      if(deal === 'rent'){
+        deal = "השכרה"
+      } else {
+        deal = "מכירה"
+      }
+      
+      let list = houses.filter(h=> h.deal === deal );
+      console.log(list);
       res.render('houses', {list:list,host:host});
       
   });
