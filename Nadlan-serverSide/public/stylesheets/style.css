@@ -21,8 +21,9 @@ html, body, main,contai {
     position: relative;
 }
 
-.navbar-form>div{
+.navbar-form{
     margin: 2%;
+  
 }
 .nav-bar-down{
     
@@ -33,12 +34,18 @@ html, body, main,contai {
     width: 80%;
 
 }
+.form-group{
+    width: 35% !important;
+    padding: 2% 0% 0 2%;
+    text-align: center;
+    display: inline-block !important;
+}
 .dropa{
     background-color:aliceblue !important;
 }
-.navbar-form, .form-group{
+.navbar-form{
     display: flex;
-    width: 100%;
+   
     
 }
 
@@ -123,12 +130,18 @@ nav{
         width: 50%;
         margin: 3% 0 0 0;
         text-align: center;
-        order: 2;
+        
     }   
     input.form-control{
         width: 100%;
     }
+    
 }
+.form-control{
+    border-radius: 0px;
+}
+
+
 .navbar-toggle{
     margin:30px 60px 0 0;
 }
@@ -190,6 +203,7 @@ li a{
 
     .navbar-form >div{
         margin-top: 0;
+        
     }
 .nav-bar-down .dropdown ul a:hover{
     background-color: lightgray;
@@ -235,16 +249,17 @@ li a{
 }
 
 .new > div:hover{
-    transform: scale(1.2); 
+    transform: scale(1.2);
+    padding: 5%; 
+    z-index: 1;
+    background-color: rgba(0,0,0,0.5);
 }
 
 .col-sm-12{
    padding: 0;
     margin: 0;
 }
-.search-btn{
-    
-}
+
 .navbar>.container-fluid .navbar-brand{
          margin-left: 0; 
 }

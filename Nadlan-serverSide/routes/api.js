@@ -63,7 +63,7 @@ router.get('/houses', function(req,res){
       let list = houses;
       
       const host = req.headers.host;
-      res.render('houses', {list:list,host:host});
+      res.render('houses', {list:list,host:host,lenght:lenght});
   });
 });
 
@@ -85,9 +85,12 @@ router.get('/houses/spec/:_deal', function(req,res){
         deal = "מכירה"
       }
       
+
       let list = houses.filter(h=> h.deal === deal );
-      console.log(list);
-      res.render('houses', {list:list,host:host});
+      let length = list.length;
+      console.log(houses.length);
+
+      res.render('houses', {list:list,host:host,length:length});
       
   });
 });

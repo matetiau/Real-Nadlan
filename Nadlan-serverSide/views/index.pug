@@ -8,7 +8,7 @@ html(dir='rtl')
   link(href='https://fonts.googleapis.com/css?family=Rubik', rel='stylesheet')
   link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.2.0/css/all.css', integrity='sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ', crossorigin='anonymous')
   link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
-  script(src='less.js', type='text/javascript')
+  
 
 
   .contai#all
@@ -45,27 +45,29 @@ html(dir='rtl')
     // navbar down
     .nav-bar-down
       form.navbar-form.navbar-right(method='GET' action='/search' role='search' style=" color:white; font-size:25px;" )
-        .form-group.dropdown( style="width:30%; color:white;")
-                    | סוג עסקה:
+        .form-group.dropdown( style=" color:white;")
+                    | סוג עסקה
                     select.form-control(name='deal'  required )
                           option(value='מכירה') מכירה
                           option(value='השכרה') השכרה
-        .form-group.dropdown( style="width:30%;")
+        .form-group.dropdown
                     | סוג נכס
                     select.form-control(name='types'  required )
                           option(value='דירה') דירה
                           option(value='בית פרטי') בית פרטי
                           option(value='קרקע') קרקע
                           option(value='משרד') משרד
-        .form-group.dropdown( style="width:30%;")
-                    | אזור :
-                    select.form-control(name='area'  required )
+        .form-group.dropdown(style="width:20%;" )
+                    | אזור
+                    br
+                    select.form-control(name='area'  required)
                           option(value='מרכז') מרכז
                           option(value='צפון') צפון
                           option(value='דרום') דרום
-        .form-group.dropdown( style="width:30%;")
-                    | חדרים:
-                    select.form-control(name='rooms' required style="width:70%;")
+        .form-group.dropdown(style="width:20%;" )
+                    | חדרים
+                    br
+                    select.form-control(name='rooms' required )
                         option(value='1') 1
                         option(value='1.5') 1.5
                         option(value='2') 2
@@ -79,11 +81,11 @@ html(dir='rtl')
                         option(value='6;') 6
                         option(value='6.5;') 6.5
                         option(value='7+;') 7+
-        .form-group(style="width:30%;")
-                    | מחיר מ:
-                    input.form-control( name='priceRangeLow' type='text' style="width:70%;"  required)   
-                    | מחיר עד:
-                    input.form-control( name='priceRangeHigh' type='text' style="width:70%;"  required)              
+        .form-group
+                    | מחיר מ
+                    input.form-control( name='priceRangeLow' type='text'    required)   
+                    | מחיר עד
+                    input.form-control( name='priceRangeHigh' type='text'  required)              
         input.btn.btn-success( type="submit" aria-label='Left Align' value="חפש")
          
          

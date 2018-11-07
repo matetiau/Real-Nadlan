@@ -79,7 +79,8 @@ router.get('/search',urlencodedParser, function(req,res){
                             && house.types === types
                             && house.area === area
                             && parseInt(house.price) >= parseInt(priceLow)
-                            && parseInt(house.price) <= parseInt(priceHigh) );
+                            && parseInt(house.price) <= parseInt(priceHigh)
+                            && parseInt(house.rooms) === parseInt(rooms) );
         
         
         if(list.length === 0){
